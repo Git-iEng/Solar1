@@ -356,25 +356,25 @@ def contact_block_submit(request):
     dial_code = _dial_code_from_alpha2(alpha2)
 
     # --- Append to Excel ---
-    xlsx_path = Path(getattr(settings, "CONTACT_SUBMISSIONS_XLSX",
-                             Path(settings.BASE_DIR) / "contact_submissions.xlsx"))
-    # Be liberal with columns; utils will just append the row.
-    append_submission_xlsx(
-        xlsx_path,
-        [
-            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            name,
-            email,
-            e164_phone or phone,
-            alpha2,
-            country_name,
-            dial_code,
-            service,
-            message,
-            request.META.get("REMOTE_ADDR", ""),
-            request.META.get("HTTP_REFERER", ""),
-        ],
-    )
+    # xlsx_path = Path(getattr(settings, "CONTACT_SUBMISSIONS_XLSX",
+    #                          Path(settings.BASE_DIR) / "contact_submissions.xlsx"))
+    # # Be liberal with columns; utils will just append the row.
+    # append_submission_xlsx(
+    #     xlsx_path,
+    #     [
+    #         datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    #         name,
+    #         email,
+    #         e164_phone or phone,
+    #         alpha2,
+    #         country_name,
+    #         dial_code,
+    #         service,
+    #         message,
+    #         request.META.get("REMOTE_ADDR", ""),
+    #         request.META.get("HTTP_REFERER", ""),
+    #     ],
+    # )
 
     # --- Email notification ---
     subject = f"[Website] Consulting request: {name} – {service or 'General'}"
