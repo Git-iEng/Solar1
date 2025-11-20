@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System</title>
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/neplan-about.css' %}">
+  <link rel="stylesheet" href="{% static 'css/consult-block.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="{% static 'images/logo1.avif' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  <script defer src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+  {% include 'header.html' %}
+  {% include 'request_demo_modal.html' %}
+  {% load static %}
+  
+  <!-- ====================== HERO / HEADLINE ====================== -->
+  <section id="home" class="section-hero-solar-system">
+    <div class="container-solar-system grid-hero-solar-system">
+      <div class="hero-left-solar-system">
+        <h1 class="hero-title-solar-system">
+          Power a <span class="accent-solar-system">Sustainable</span><br>
+          <span class="accent-solar-system">Future</span> with iEngineering Solar System
+        </h1>
+        <p class="hero-sub-solar-system">
+          Harnessing the Sun's Energy for a Greener Tomorrow
+        </p>
+
+        <div class="hero-cta-solar-system">
+          <a href="#solutions" class="btn-primary-solar-system">Our Solutions</a>
+          <a href="#types" class="btn-ghost-solar-system js-open-demo">Get a Quote</a>
+        </div>
+      </div>
+
+      <div class="hero-right-solar-system">
+        <!-- Replace the src with your image path -->
+        <img src="{% static 'images/solar-system/home.avif' %}" alt="Technician installing solar panel"
+          class="hero-img-solar-system">
+      </div>
+    </div>
+
+    <!-- Decorative base band like the reference -->
+    <div class="hero-band-solar-system"></div>
+  </section>
+
+  <!-- ====================== WHY US ====================== -->
+  <section id="why" class="section-why-solar-system-why">
+    <div class="container-solar-system">
+      <p class="eyebrow-solar-system-why reveal-solar-system reveal-top-solar-system-why">
+        Why Us
+      </p>
+      <h2 class="title-solar-system-why reveal-solar-system reveal-bottom-solar-system-why">
+        Solar iEngineering at a Glance
+      </h2>
+
+      <div class="grid-solar-system-why">
+        <!-- 1 -->
+        <article class="card-solar-system-why reveal-solar-system reveal-left-solar-system-why">
+          <!-- <div class="icon-wrap-solar-system-why">
+            <i class="ri-search-line"></i>
+          </div> -->
+          <h3 class="card-title-solar-system-why">Consultation & Site Survey</h3>
+          <p class="card-text-solar-system-why">
+           Thorough assessment of your property and energy needs to determine the optimal solar design and project feasibility.  </p>
+        </article>
+
+        <!-- 2 -->
+        <article class="card-solar-system-why reveal-solar-system reveal-top-solar-system-why">
+          <!-- <div class="icon-wrap-solar-system-why">
+            <i class="ri-user-voice-line"></i>
+          </div> -->
+          <h3 class="card-title-solar-system-why">Design & Engineering</h3>
+          <p class="card-text-solar-system-why">
+            Detailed system design using advanced software   ensuring maximum efficiency, safety, and compliance with Australian Standards.
+          </p>
+        </article>
+
+        <!-- 3 -->
+        <article class="card-solar-system-why reveal-solar-system reveal-right-solar-system-why">
+          <!-- <div class="icon-wrap-solar-system-why">
+            <i class="ri-shield-star-line"></i>
+          </div> -->
+          <h3 class="card-title-solar-system-why">Procurement & Installation</h3>
+          <p class="card-text-solar-system-why">
+            Supply and installation of high-quality solar components by certified professionals for a seamless and reliable setup.  </p>
+        </article>
+
+        <!-- 4 -->
+        <article class="card-solar-system-why reveal-solar-system reveal-left-solar-system-why">
+          <!-- <div class="icon-wrap-solar-system-why">
+            <i class="ri-money-dollar-circle-line"></i>
+          </div> -->
+          <h3 class="card-title-solar-system-why">Monitoring & Analytics</h3>
+          <p class="card-text-solar-system-why">
+            Track system performance, energy savings, and real-time data with our smart monitoring platform.
+          </p>
+        </article>
+
+        <!-- 5 -->
+        <article class="card-solar-system-why reveal-solar-system reveal-bottom-solar-system-why">
+          <!-- <div class="icon-wrap-solar-system-why">
+            <i class="ri-smartphone-line"></i>
+          </div> -->
+          <h3 class="card-title-solar-system-why">Maintenance & Support</h3>
+          <p class="card-text-solar-system-why">
+            Regular inspections, performance checks, and on-demand service to keep your system operating efficiently for years.
+          </p>
+        </article>
+
+        <!-- 6 -->
+        <article class="card-solar-system-why reveal-solar-system reveal-right-solar-system-why">
+          <!-- <div class="icon-wrap-solar-system-why">
+            <i class="ri-tools-line"></i>
+          </div> -->
+          <h3 class="card-title-solar-system-why">Warranty & Assurance</h3>
+          <p class="card-text-solar-system-why">
+          Comprehensive equipment and workmanship warranties for long-term reliability and peace of mind. </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== TYPES OF SOLAR SYSTEMS ====================== -->
+  <section id="types" class="section-types-solar-system-types">
+    <div class="container-solar-system">
+      <p class="kicker-solar-system-types reveal-solar-system reveal-top-solar-system-types">Types of Solar Systems</p>
+      <h2  class="title-solar-system-types reveal-solar-system reveal-bottom-solar-system-types">Choose the Right Solar
+        Setup</h2>
+
+      <!-- Tabs -->
+      <div class="tabs-solar-system-types" role="tablist" aria-label="Solar types">
+        <button class="tab-btn-solar-system-types is-active-solar-system-types" role="tab" aria-selected="true"
+          aria-controls="panel-on-grid-solar-system-types" id="tab-on-grid-solar-system-types" data-type="on-grid">
+          <i class="ri-plug-line" aria-hidden="true"></i> On-Grid (Grid-Tied)
+        </button>
+        <button class="tab-btn-solar-system-types" role="tab" aria-selected="false"
+          aria-controls="panel-off-grid-solar-system-types" id="tab-off-grid-solar-system-types" data-type="off-grid">
+          <i class="ri-road-map-line" aria-hidden="true"></i> Off-Grid
+        </button>
+        <button class="tab-btn-solar-system-types" role="tab" aria-selected="false"
+          aria-controls="panel-hybrid-solar-system-types" id="tab-hybrid-solar-system-types" data-type="hybrid">
+          <i class="ri-shuffle-line" aria-hidden="true"></i> Hybrid
+        </button>
+      </div>
+
+      <!-- Panels -->
+      <div class="panel-solar-system-types is-active-solar-system-types" role="tabpanel"
+        id="panel-on-grid-solar-system-types" aria-labelledby="tab-on-grid-solar-system-types">
+        <div class="panel-grid-solar-system-types" id="on-grid">
+          <div class="panel-text-solar-system-types reveal-solar-system reveal-left-solar-system-types">
+            <h3>On-Grid Solar System (Grid-Tied)</h3>
+            <p>Connected to the electricity grid; excess solar can be exported, often earning credits via net metering.
+            </p>
+            <ul class="bullets-solar-system-types">
+              <li><i class="ri-check-line"></i> Lowest upfront cost; use grid as virtual battery.</li>
+              <li><i class="ri-check-line"></i> Earn credits for exported energy (where available).</li>
+              <li><i class="ri-alert-line"></i> Does not run during outages unless paired with
+                batteries and backup circuitry.</li>
+            </ul>
+          </div>
+          <figure class="panel-media-solar-system-types reveal-solar-system reveal-right-solar-system-types">
+            <img src="{% static 'images/solar-system/on-grid.avif' %}" alt="On-grid solar tied to utility" />
+          </figure>
+        </div>
+      </div>
+
+      <div class="panel-solar-system-types" role="tabpanel" id="panel-off-grid-solar-system-types"
+        aria-labelledby="tab-off-grid-solar-system-types" hidden>
+        <div class="panel-grid-solar-system-types" id="off-grid">
+          <div class="panel-text-solar-system-types reveal-solar-system reveal-left-solar-system-types">
+            <h3>Off-Grid Solar System</h3>
+            <p>Standalone system using batteries to store energy, ideal for remote sites without grid access.</p>
+            <ul class="bullets-solar-system-types">
+              <li><i class="ri-check-line"></i> Total independence from the grid.</li>
+              <li><i class="ri-battery-2-charge-line"></i> Requires correctly sized battery & inverter for 24/7 supply.
+              </li>
+              <li><i class="ri-tools-line"></i> Design & maintenance planning are critical for reliability.</li>
+            </ul>
+          </div>
+          <figure class="panel-media-solar-system-types reveal-solar-system reveal-right-solar-system-types">
+            <img src="{% static 'images/solar-system/off-grid.avif' %}" alt="Off-grid solar with batteries" />
+          </figure>
+        </div>
+      </div>
+
+      <div class="panel-solar-system-types" role="tabpanel" id="panel-hybrid-solar-system-types"
+        aria-labelledby="tab-hybrid-solar-system-types" hidden>
+        <div class="panel-grid-solar-system-types" id="hybrid">
+          <div class="panel-text-solar-system-types reveal-solar-system reveal-left-solar-system-types">
+            <h3>Hybrid Solar System</h3>
+            <p>Combines batteries with a grid connection, store energy for backup while importing/exporting as needed.
+            </p>
+            <ul class="bullets-solar-system-types">
+              <li><i class="ri-check-line"></i> Works during outages using battery backup.</li>
+              <li><i class="ri-exchange-dollar-line"></i> Optimize self-consumption with time-of-use strategies.</li>
+              <li><i class="ri-bar-chart-2-line"></i> Best balance of independence, reliability, and ROI.</li>
+            </ul>
+          </div>
+          <figure class="panel-media-solar-system-types reveal-solar-system reveal-right-solar-system-types">
+            <img src="{% static 'images/solar-system/hybrid.avif' %}" alt="Hybrid solar with battery and grid" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- Quick features row -->
+      <div class="feature-grid-solar-system-types reveal-solar-system reveal-bottom-solar-system-types"
+        aria-hidden="true">
+        <div class="feature-chip-solar-system-types"><i class="ri-community-line"></i> Grid Connection</div>
+        <div class="feature-chip-solar-system-types"><i class="ri-shut-down-line"></i> Backup in Outage</div>
+        <div class="feature-chip-solar-system-types"><i class="ri-bank-card-line"></i> Net Metering Credits</div>
+        <div class="feature-chip-solar-system-types"><i class="ri-battery-charge-line"></i> Battery Storage</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== TYPES OF SOLAR MOUNTING STRUCTURES ====================== -->
+  <section id="mounting-types" class="section-types-solar-system-types">
+    <div class="container-solar-system">
+      <p class="kicker-solar-system-types reveal-solar-system reveal-top-solar-system-types">
+        Types of Solar Mounting Structures
+      </p>
+      <h2 class="title-solar-system-types reveal-solar-system reveal-bottom-solar-system-types">
+        Select the Ideal Mounting Solution
+      </h2>
+
+      <!-- Tabs (reuse same classes & JS keys) -->
+      <div class="tabs-solar-system-types" role="tablist" aria-label="Solar mounting types">
+        <button class="tab-btn-solar-system-types is-active-solar-system-types" role="tab" aria-selected="true"
+          aria-controls="panel-on-grid-mount-types" id="tab-on-grid-mount-types" data-type="on-grid">
+          <i class="ri-landscape-line" aria-hidden="true"></i>
+          Ground-Mounted
+        </button>
+
+        <button class="tab-btn-solar-system-types" role="tab" aria-selected="false"
+          aria-controls="panel-off-grid-mount-types" id="tab-off-grid-mount-types" data-type="off-grid">
+          <i class="ri-home-3-line" aria-hidden="true"></i>
+          Rooftop
+        </button>
+      </div>
+
+      <!-- Panel: Ground-Mounted (maps to 'on-grid' for JS compatibility) -->
+      <div class="panel-solar-system-types is-active-solar-system-types" role="tabpanel" id="panel-on-grid-mount-types"
+        aria-labelledby="tab-on-grid-mount-types">
+        <div class="panel-grid-solar-system-types">
+          <div class="panel-text-solar-system-types reveal-solar-system reveal-left-solar-system-types">
+            <h3>Ground-Mounted Solar Systems</h3>
+            <p>
+              Designed for large-scale installations ranging from <strong>10&nbsp;MW to 200&nbsp;MW</strong>, these
+              systems are installed on open land to maximize solar energy generation. They are ideal for utility-scale
+              projects and grid integration.
+            </p>
+            <ul class="bullets-solar-system-types">
+              <li><i class="ri-check-line"></i> Optimized land use for maximum yield on utility-scale sites.</li>
+              <li><i class="ri-check-line"></i> Scalable from 10&nbsp;MW up to 200&nbsp;MW and beyond.</li>
+              <li><i class="ri-check-line"></i> Well-suited for grid connection and centralized O&amp;M.</li>
+            </ul>
+          </div>
+
+          <figure class="panel-media-solar-system-types reveal-solar-system reveal-right-solar-system-types">
+            <!-- Replace with your asset -->
+            <img src="{% static 'images/solarm1.avif' %}" alt="Utility-scale ground-mounted solar array on open land">
+          </figure>
+        </div>
+      </div>
+
+      <!-- Panel: Rooftop (maps to 'off-grid' for JS compatibility) -->
+      <div class="panel-solar-system-types" role="tabpanel" id="panel-off-grid-mount-types"
+        aria-labelledby="tab-off-grid-mount-types" hidden>
+        <div class="panel-grid-solar-system-types">
+          <div class="panel-text-solar-system-types reveal-solar-system reveal-left-solar-system-types">
+            <h3>Rooftop Solar Systems</h3>
+            <p>
+              Suitable for <strong>residential, commercial, and industrial buildings</strong>, rooftop systems utilize
+              available roof space to generate clean energy efficiently. They help reduce electricity costs and support
+              sustainability goals.
+            </p>
+            <ul class="bullets-solar-system-types">
+              <li><i class="ri-check-line"></i> Leverages existing roof space, no additional land required.</li>
+              <li><i class="ri-check-line"></i> Cuts electricity bills for homes, businesses, and factories.</li>
+              <li><i class="ri-check-line"></i> Accelerates corporate and household sustainability targets.</li>
+            </ul>
+          </div>
+
+          <figure class="panel-media-solar-system-types reveal-solar-system reveal-right-solar-system-types">
+            <!-- Replace with your asset -->
+            <img src="{% static 'images/solarm2.avif' %}" alt="Rooftop solar panels on commercial building">
+          </figure>
+        </div>
+      </div>
+
+      <!-- Optional chips row (can remove if not needed) -->
+      <div class="feature-grid-solar-system-types reveal-solar-system reveal-bottom-solar-system-types"
+        aria-hidden="true">
+        <div class="feature-chip-solar-system-types"><i class="ri-road-map-line"></i> Utility-Scale</div>
+        <div class="feature-chip-solar-system-types"><i class="ri-community-line"></i> Buildings</div>
+        <div class="feature-chip-solar-system-types"><i class="ri-bar-chart-2-line"></i> High Yield</div>
+        <div class="feature-chip-solar-system-types"><i class="ri-seedling-line"></i> Sustainability</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ====================== SOLUTIONS ====================== -->
+  <section id="solutions" class="section-solutions-solar-system-solution">
+    <div class="container-solar-system">
+      <div class="solutions-head-solar-system-solution">
+        <div>
+          <p class="solutions-kicker-solar-system-solution reveal-solar-system reveal-top-solar-system-solution">
+            Our Solutions
+          </p>
+          <h2 class="solutions-title-solar-system-solution reveal-solar-system reveal-bottom-solar-system-solution">
+            Discover Our Comprehensive Solutions
+          </h2>
+        </div>
+
+        <button id="solutions-toggle-btn-solar-system-solution" class="solutions-viewall-btn-solar-system-solution"
+          type="button" aria-expanded="false">
+          View All Solutions
+        </button>
+      </div>
+
+      <div id="solutions-grid-solar-system-solution"
+        class="grid-solutions-solar-system-solution is-collapsed-solar-system-solution">
+
+        <!-- 1: Residential -->
+        <article class="card-solar-system-solution reveal-solar-system reveal-left-solar-system-solution">
+          <div class="card-icon-solar-system-solution"><i class="ri-home-4-line" aria-hidden="true"></i></div>
+          <h3 class="card-title-solar-system-solution">Residential Solution</h3>
+          <p class="card-text-solar-system-solution">
+            Efficient solar solutions for small-scale energy needs. Perfect for residential and small commercial
+            properties.
+          </p>
+          <!-- <a href="#contact" class="card-link-solar-system-solution">
+            Learn More <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a> -->
+        </article>
+
+        <!-- 2: Commercial -->
+        <article class="card-solar-system-solution reveal-solar-system reveal-top-solar-system-solution">
+          <div class="card-icon-solar-system-solution"><i class="ri-community-line" aria-hidden="true"></i></div>
+          <h3 class="card-title-solar-system-solution">Commercial Solution</h3>
+          <p class="card-text-solar-system-solution">
+            Powerful solutions for medium-scale energy needs. Ideal for larger homes or medium-sized businesses.
+          </p>
+          <!-- <a href="#contact" class="card-link-solar-system-solution">
+            Learn More <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a> -->
+        </article>
+
+        <!-- 3: Industrial -->
+        <article class="card-solar-system-solution reveal-solar-system reveal-right-solar-system-solution">
+          <div class="card-icon-solar-system-solution"><i class="ri-building-4-line" aria-hidden="true"></i></div>
+          <h3 class="card-title-solar-system-solution">Industrial Solution</h3>
+          <p class="card-text-solar-system-solution">
+            Robust solutions for large-scale energy applications - industrial, commercial, or utility-scale projects.
+          </p>
+          <!-- <a href="#contact" class="card-link-solar-system-solution">
+            Learn More <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a> -->
+        </article>
+
+        <!-- 4: Utility / Solar Farms (hidden initially) -->
+        <article
+          class="card-solar-system-solution extra-card-solar-system-solution reveal-solar-system reveal-left-solar-system-solution">
+          <div class="card-icon-solar-system-solution"><i class="ri-sun-line" aria-hidden="true"></i></div>
+          <h3 class="card-title-solar-system-solution">Utility-Scale Solar</h3>
+          <p class="card-text-solar-system-solution">
+            High-capacity PV systems with grid integration, monitoring, and performance guarantees.
+          </p>
+          <!-- <a href="#contact" class="card-link-solar-system-solution">
+            Learn More <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a> -->
+        </article>
+
+        <!-- 5: Battery / BESS -->
+        <article
+          class="card-solar-system-solution extra-card-solar-system-solution reveal-solar-system reveal-bottom-solar-system-solution">
+          <div class="card-icon-solar-system-solution"><i class="ri-battery-2-charge-line" aria-hidden="true"></i></div>
+          <h3 class="card-title-solar-system-solution">Battery Storage (BESS)</h3>
+          <p class="card-text-solar-system-solution">
+            Peak-shaving and backup with safe, scalable battery energy storage solutions.
+          </p>
+          <!-- <a href="#contact" class="card-link-solar-system-solution">
+            Learn More <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a> -->
+        </article>
+
+        <!-- 6: EV Charging -->
+        <article
+          class="card-solar-system-solution extra-card-solar-system-solution reveal-solar-system reveal-right-solar-system-solution">
+          <div class="card-icon-solar-system-solution"><i class="ri-charging-pile-2-line" aria-hidden="true"></i></div>
+          <h3 class="card-title-solar-system-solution">Solar-Powered EV Charging Solutions</h3>
+          <p class="card-text-solar-system-solution">
+            AC & DC fast charging with smart load management and OCPP-ready networking.
+          </p>
+          <!-- <a href="#contact" class="card-link-solar-system-solution">
+            Learn More <i class="ri-arrow-right-line" aria-hidden="true"></i>
+          </a> -->
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+ <section id="app" class="section-app-solar-system-app">
+    <div class="container-solar-system">
+
+
+      <!-- Row 2: Image left, Text right -->
+      <div class="grid-app-solar-system-app grid-reverse-solar-system-app">
+
+        <figure class="col-media-solar-system-app reveal-solar-system reveal-left-solar-system-app">
+          <div class="media-chart-solar-system-app" data-tilt>
+            <img src="{% static 'images/components.avif' %}" alt="Solar farm components visual"
+              class="chart-img-solar-system-app">
+          </div>
+        </figure>
+
+        <div class="col-text-solar-system-app reveal-solar-system reveal-right-solar-system-app">
+          <p class="kicker-solar-system-app">Solar Farm</p>
+          <h2 class="title-solar-system-app">Components of a Solar Farm</h2>
+
+          <ul class="list-solar-system-app reveal-solar-system reveal-top-solar-system-app">
+            <li><i class="ri-check-line" aria-hidden="true"></i> PV Modules &amp; Mounting Structures</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Inverters</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Battery &amp; Battery Management System (BMS)</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Energy Management System (EMS)</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> PV Cables, Combiner Box and Connectors</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section-csc-solar-system-csc-products" id="cec-products">
+    <div class="container-csc-solar-system-csc-products">
+      <header class="head-csc-solar-system-csc-products">
+        <span class="eyebrow-csc-solar-system-csc-products reveal-top-solar-system-csc-products">
+          CEC-Approved Components
+        </span>
+        <h2 class="title-csc-solar-system-csc-products reveal-top-solar-system-csc-products">
+          CEC-Approved Components for Guaranteed Quality &amp; Compliance
+        </h2>
+        <p class="lead-csc-solar-system-csc-products reveal-top-solar-system-csc-products">
+          At iEngineering, we design and deliver solar systems built only with Clean Energy Council (CEC) approved
+          panels, inverters, and accessories - ensuring your investment meets Australian standards from day one.
+        </p>
+        <p class="lead-csc-solar-system-csc-products reveal-top-solar-system-csc-products">
+          Using CEC-listed equipment not only guarantees quality and safety, but also makes your project eligible for
+          government rebates, faster approvals, and long-term warranty support. We partner with top-tier certified
+          brands
+          to give you complete confidence in performance, reliability, and ROI.
+        </p>
+        <p class="lead-csc-solar-system-csc-products reveal-top-solar-system-csc-products">
+          Choose iEngineering for a solution that’s technically advanced, fully compliant, and financially smarter -
+          ready to power your future the right way.
+        </p>
+      </header>
+
+      <!-- Document cards -->
+      <div class="docs-grid-csc-solar-system-csc-products">
+        <!-- DOC 1 -->
+        <article class="doc-card-csc-solar-system-csc-products reveal-left-solar-system-csc-products">
+          <div class="doc-meta-csc-solar-system-csc-products">
+            <div class="doc-icon-csc-solar-system-csc-products" aria-hidden="true">📘</div>
+            <div>
+              <h3 class="doc-title-csc-solar-system-csc-products">Australia User Manual Revision</h3>
+              <p class="doc-note-csc-solar-system-csc-products">Reference manual • CEC compliant</p>
+            </div>
+          </div>
+          <div class="doc-actions-csc-solar-system-csc-products">
+            <!-- <a class="btn-ghost-csc-solar-system-csc-products view-doc-csc-solar-system-csc-products" href="#"
+              data-url="{% static 'images/docs/australia-user-manual-revision.pdf' %}">View Online</a> -->
+            <button class="btn-primary-csc-solar-system-csc-products request-download-csc-solar-system-csc-products"
+              data-doc="Australia User Manual Revision">Request Download</button>
+          </div>
+        </article>
+
+        <!-- DOC 2 -->
+        <article class="doc-card-csc-solar-system-csc-products reveal-up-solar-system-csc-products">
+          <div class="doc-meta-csc-solar-system-csc-products">
+            <div class="doc-icon-csc-solar-system-csc-products" aria-hidden="true">📗</div>
+            <div>
+              <h3 class="doc-title-csc-solar-system-csc-products">
+                Energy Storage Converter 100kW-OS Edition Specification Sheet – 20250826
+              </h3>
+              <p class="doc-note-csc-solar-system-csc-products">Specification sheet • Performance &amp; ratings</p>
+            </div>
+          </div>
+          <div class="doc-actions-csc-solar-system-csc-products">
+            <!-- <a class="btn-ghost-csc-solar-system-csc-products view-doc-csc-solar-system-csc-products" href="#"
+              data-url="{% static 'images/docs/energy-storage-converter-100kw-os-edition-specification-sheet-20250826.pdf' %}">View
+              Online</a> -->
+            <button class="btn-primary-csc-solar-system-csc-products request-download-csc-solar-system-csc-products"
+              data-doc="Energy Storage Converter 100kW-OS Edition Specification Sheet – 20250826">Request
+              Download</button>
+          </div>
+        </article>
+
+        <!-- DOC 3 -->
+        <article class="doc-card-csc-solar-system-csc-products reveal-right-solar-system-csc-products">
+          <div class="doc-meta-csc-solar-system-csc-products">
+            <div class="doc-icon-csc-solar-system-csc-products" aria-hidden="true">📒</div>
+            <div>
+              <h3 class="doc-title-csc-solar-system-csc-products">Warranty</h3>
+              <p class="doc-note-csc-solar-system-csc-products">Coverage terms • Support &amp; service</p>
+            </div>
+          </div>
+          <div class="doc-actions-csc-solar-system-csc-products">
+            <!-- <a class="btn-ghost-csc-solar-system-csc-products view-doc-csc-solar-system-csc-products" href="#"
+              data-url="{% static 'images/docs/warranty.pdf' %}">View Online</a> -->
+            <button class="btn-primary-csc-solar-system-csc-products request-download-csc-solar-system-csc-products"
+              data-doc="Warranty">Request Download</button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal: request download -->
+    <div class="modal-csc-solar-system-csc-products" id="csc-modal" aria-hidden="true">
+      <div class="modal-backdrop-csc-solar-system-csc-products"></div>
+      <div class="modal-dialog-csc-solar-system-csc-products" role="dialog" aria-modal="true"
+        aria-labelledby="csc-modal-title">
+        <button class="modal-close-csc-solar-system-csc-products" aria-label="Close">×</button>
+
+        <h3 id="csc-modal-title" class="modal-title-csc-solar-system-csc-products">
+          Request Download
+        </h3>
+        <p class="modal-sub-csc-solar-system-csc-products">
+          Enter your details and we’ll email the file to you.
+        </p>
+
+        <form class="form-csc-solar-system-csc-products" id="csc-form" method="post" novalidate>
+          {% csrf_token %}
+          <input type="hidden" id="csc-doc-name" name="docName" />
+          <div class="field-csc-solar-system-csc-products">
+            <label for="csc-name">Full name</label>
+            <input id="csc-name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div class="field-csc-solar-system-csc-products">
+            <label for="csc-email">Email</label>
+            <input id="csc-email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <button type="submit"
+            class="btn-primary-csc-solar-system-csc-products btn-wide-csc-solar-system-csc-products">
+            Send me the file
+          </button>
+        </form>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== SOLAR APP (EMS + Components) ====================== -->
+  <section id="app" class="section-app-solar-system-app">
+    <div class="container-solar-system">
+      <!-- Row 1: Text left, Image right -->
+      <div class="grid-app-solar-system-app">
+        <div class="col-text-solar-system-app reveal-solar-system reveal-left-solar-system-app">
+          <p class="kicker-solar-system-app">EMS</p>
+          <h2 class="title-solar-system-app">Advanced Energy Management System (EMS)</h2>
+
+          <p class="reveal-solar-system reveal-bottom-solar-system-app">
+            Our Energy Management System (EMS) enables real-time monitoring of system performance, including:
+          </p>
+
+          <ul class="list-solar-system-app reveal-solar-system reveal-bottom-solar-system-app">
+            <li><i class="ri-check-line" aria-hidden="true"></i> System conditions</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Temperature</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Battery charging and discharging cycles</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Other critical operational data</li>
+          </ul>
+        </div>
+
+        <figure class="col-media-solar-system-app reveal-solar-system reveal-left-solar-system-app">
+          <div class="media-chart-solar-system-app" data-tilt>
+            <img src="{% static 'images/app1.avif' %}" alt="Solar farm components visual"
+              class="chart-img-solar-system-app">
+          </div>
+        </figure>
+      </div>
+
+<section class="image-gallery-pylon reveal-solar-system reveal-left-solar-system-app">
+  <div class="image-grid-pylon">
+
+    <!-- Card 1 -->
+    <div class="image-card-pylon reveal-solar-system reveal-left-solar-system-app">
+      <img src="{% static 'images/icons/1.png' %}" alt="Image 1">
+    
+    </div>
+
+    <!-- Card 2 -->
+    <div class="image-card-pylon reveal-solar-system reveal-left-solar-system-app">
+      <img src="{% static 'images/icons/3.png' %}" alt="Image 2">
+
+    </div>
+
+    <!-- Card 3 -->
+    <div class="image-card-pylon reveal-solar-system reveal-left-solar-system-app">
+      <img src="{% static 'images/icons/4.png' %}" alt="Image 3">
+
+    </div>
+
+    <!-- Card 4 -->
+    <div class="image-card-pylon reveal-solar-system reveal-left-solar-system-app">
+      <img src="{% static 'images/icons/1.png' %}" alt="Image 4">
+
+    </div>
+
+  </div>
+</section>
+      
+
+    </div>
+  </section>
+
+
+
+  <section class="section-pylon-solar-system-pylon" id="pylon">
+    <div class="container-solar-system-pylon">
+      <div class="grid-pylon-solar-system-pylon">
+        <!-- LEFT: Copy -->
+        <div class="copy-pylon-solar-system-pylon">
+          <span class="eyebrow-pylon-solar-system-pylon reveal-top-solar-system-pylon">Solar Design &amp; Analysis with
+            Pylon Software</span>
+
+          <h2 class="title-pylon-solar-system-pylon reveal-left-solar-system-pylon">
+            Smarter, data-driven solar designs-precise, efficient, and tailored to you.
+          </h2>
+
+          <p class="lead-pylon-solar-system-pylon reveal-left-solar-system-pylon">
+            At iEngineering, we use <strong>Pylon</strong> to deliver smarter solar PV designs that perfectly match each
+            client’s energy profile and site conditions.
+          </p>
+
+          <ul class="list-pylon-solar-system-pylon">
+            <li class="reveal-left-solar-system-pylon">
+              Through detailed simulations, Pylon analyses roof geometry, shading, orientation, and energy demand to
+              determine the optimal system size, configuration, and performance.
+            </li>
+            <li class="reveal-left-solar-system-pylon">
+              The platform provides clear insights into self-consumption rates, expected savings, and payback period
+              (ROI) - giving you a full picture of financial and environmental benefits before installation.
+            </li>
+            <li class="reveal-left-solar-system-pylon">
+              Every design includes a comparison of energy costs <em>with vs. without</em> solar so you can visualise
+              bill reductions and carbon-footprint impact.
+            </li>
+            <li class="reveal-left-solar-system-pylon">
+              From residential rooftops to large commercial systems, our Pylon-based approach ensures each project is
+              technically sound, financially viable, and sustainability-focused.
+            </li>
+          </ul>
+<!-- 
+          <div class="tagline-pylon-solar-system-pylon reveal-up-solar-system-pylon">
+            <strong>Tagline -</strong> Smarter solar designs powered by Pylon - engineered for maximum savings, faster
+            payback, and real energy independence.
+          </div> -->
+
+          <div class="cta-row-pylon-solar-system-pylon reveal-up-solar-system-pylon">
+            <a href="#contact" class="btn-primary-pylon-solar-system-pylon">Start your solar design</a>
+            <a href="#project" class="btn-ghost-pylon-solar-system-pylon">See case studies</a>
+          </div>
+        </div>
+
+        <!-- RIGHT: Image placeholder (replace the src) -->
+        <figure class="media-pylon-solar-system-pylon reveal-right-solar-system-pylon"
+          aria-labelledby="pylon-figcaption">
+          <img src="{% static 'images/solar-system/pylon.avif' %}" alt="Pylon solar design screenshot / site layout"
+            class="img-pylon-solar-system-pylon" />
+       
+        </figure>
+      </div>
+    </div>
+  </section>
+
+<section class="section-why-solar-system1-why-us" id="resilience">
+  <div class="container-solar-system1-why-us">
+    <header class="head-solar-system1-why-us">
+      <span class="eyebrow-solar-system1-why-us reveal-top-solar-system1-why-us">iEngineering</span>
+      <h2 class="title-solar-system1-why-us reveal-top-solar-system1-why-us">More than just solar systems- we deliver Resilience
+    
+      </h2>
+      <h3 class="title-solar-system1-why-ush3">Cyclone-Ready Solar Mounting Systems</h3>
+      <p class="lead-solar-system1-why-us reveal-top-solar-system1-why-us">
+        When it comes to solar in the Pacific, surviving extreme cyclones isn’t optional—it’s essential.
+        At iEngineering, we don’t just supply panels; we deliver cyclone-rated solar mounting solutions
+        engineered for maximum safety and performance.
+      </p>
+    </header>
+
+    <div class="grid-solar-system1-why-us">
+      <!-- LEFT: prose points & sections -->
+      <div class="why-copy-solar-system1">
+        <p class="reveal-up-solar-system1-why-us"><strong>Cyclone-Rated Design:</strong> Tested and certified to withstand Category 5 cyclones.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Rooftop &amp; Ground-Mounted Systems:</strong> Tailored solutions for any project size.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Structural Load &amp; Foundation Reports:</strong> Comprehensive documentation for safety and compliance.</p>
+        <p class=" reveal-up-solar-system1-why-us"><strong>Geotechnical Report Integration:</strong> Designs optimized for site-specific soil conditions.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Reliable &amp; Long-Lasting:</strong> Protects your solar investment through storms, year after year.</p>
+
+        <h3 class="why-h3-solar-system1 reveal-up-solar-system1-why-us">Cyclone Categories in the Oceania Region</h3>
+        <p class="reveal-up-solar-system1-why-us"><strong>Category 1:</strong> 63–88 km/h – minor damage to structures and vegetation.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Category 2:</strong> 89–117 km/h – moderate damage, power failures likely.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Category 3:</strong> 118–159 km/h – serious structural damage, coastal flooding risk.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Category 4:</strong> 160–199 km/h – severe damage, dangerous storm surge.</p>
+        <p class="reveal-up-solar-system1-why-us"><strong>Category 5:</strong> 200 km/h and above – catastrophic destruction and infrastructure loss.</p>
+        <p class="reveal-up-solar-system1-why-us">
+          Countries such as Fiji, Vanuatu, Samoa, and Tonga face frequent Category 4–5 cyclones, demanding robust energy systems designed
+          for resilience and long-term durability.
+        </p>
+
+        
+      </div>
+
+      <!-- RIGHT: image then existing aside card -->
+      <div class="why-right-solar-system1">
+        <figure class="why-media-solar-system1 reveal-right-solar-system1-why-us">
+          <!-- replace the src with your actual static path -->
+          <img src="{% static 'images/more.jpeg' %}"
+               alt="Cyclone-ready solar mounting system in the Pacific">
+        </figure>
+
+        <aside class="card-solar-system1-why-us reveal-right-solar-system1-why-us">
+          <h3>Engineered for the Pacific</h3>
+          <p>
+            Trust iEngineering to deliver resilient, reliable solar mounting solutions - securing your investment
+            no matter the storm.
+          </p>
+          <div class="cta-row-solar-system1-why-us">
+            <a href="#contact" class="btn-primary-solar-system1-why-us">Talk to an engineer</a>
+            <a href="#project" class="btn-ghost-solar-system1-why-us">See projects</a>
+          </div>
+        </aside>
+        
+      </div>
+    </div>
+    <h3 class="why-h3-solar-system1 reveal-up-solar-system1-why-us">Cyclone-Resilient Solar Mounting Structures</h3>
+        <p class="reveal-up-solar-system1-why-us">
+          iEngineering’s systems are certified for <strong>70 m/s (252 km/h)</strong> winds under AS/NZS standards. Using advanced
+          <strong>Structural Mechanics Solver</strong> software, each design is tested for stability and performance under extreme conditions.
+          Combining aerodynamic geometry with marine-grade materials, our rooftop and ground-mounted solutions deliver unmatched strength,
+          corrosion resistance, and peace of mind across the Pacific.
+        </p>
+  </div>
+</section>
+
+  <!-- ====================== blogs ====================== -->
+<section id="blogs" class="section-app-solar-system-app">
+    <div class="container-solar-system">
+      <!-- Row 1: Text left, Image right -->
+      <div class="grid-app-solar-system-app">
+        <div class="col-text-solar-system-app reveal-solar-system reveal-left-solar-system-app">
+          <p class="kicker-solar-system-app">Blogs</p>
+          <h2 class="title-solar-system-app">Now CEC-Approved! iEngineering’s INPPCS-100/0.4-W-C1-OS PCS</h2>
+
+          <p class="reveal-solar-system reveal-bottom-solar-system-app">
+            Our power conversion system is officially listed on the Clean Energy Council (CEC) website unlocking new opportunities for compliant, reliable, and efficient solar and hybrid energy projects across Oceania. Experience higher efficiency, seamless grid/off-grid switching, modular scalability, and smart communication features designed for commercial, industrial, and utility-scale applications.
+          </p>
+          <br>
+          <div class="cta-row-solar-system1-why-us">
+            <a href="https://ieng.tech/blog-cec-approved-ppcs-100-power-conversion-in-australia/" class="btn-primary-solar-system1-why-us" target="_blank">Read more ...</a>
+            
+          </div>
+          <!-- <ul class="list-solar-system-app reveal-solar-system reveal-bottom-solar-system-app">
+            <li><i class="ri-check-line" aria-hidden="true"></i> System conditions</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Temperature</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Battery charging and discharging cycles</li>
+            <li><i class="ri-check-line" aria-hidden="true"></i> Other critical operational data</li>
+          </ul> -->
+        </div>
+
+        <figure class="col-media-solar-system-app reveal-solar-system reveal-left-solar-system-app">
+          <div class="media-chart-solar-system-app" data-tilt>
+            <img src="{% static 'images/solar-system/blog.png' %}" alt="Solar farm components visual"
+              class="chart-img-solar-system-app">
+          </div>
+        </figure>
+      </div>
+    </div>
+</section>
+
+<!-- ===================== OUR PROJECT (SOLAR) ===================== -->
+<section class="project-wrap-solar" id="project" aria-labelledby="projectTitle">
+  <div class="project-container-solar">
+
+    <!-- Head -->
+    <header class="project-head-solar reveal-solar from-up">
+      <p class="project-kicker-solar">Our Project</p>
+      <h2 id="projectTitle" class="project-title-solar">
+        100 kW On-Grid Hybrid Solar with 215 kWh Battery Storage
+      </h2>
+      <p class="project-sub-solar">
+        Delivered end-to-end   from engineered design through supply, installation, commissioning, and acceptance testing.
+      </p>
+    </header>
+
+    <!-- Card -->
+    <article class="project-card-solar">
+      <!-- Visual -->
+      <figure class="project-media-solar reveal-solar from-left">
+        <!-- Replace with your actual image path -->
+        <img src="{% static 'images/solar-system/project.avif' %}" 
+             alt="100 kW on-grid hybrid solar plant with battery storage" />
+        <figcaption class="project-badges-solar">
+          <span class="chip-solar">100&nbsp;kW PV</span>
+          <span class="chip-solar">215&nbsp;kWh BESS</span>
+          <span class="chip-solar">On-Grid Hybrid</span>
+        </figcaption>
+      </figure>
+
+      <!-- Copy -->
+      <div class="project-copy-solar reveal-solar from-right">
+        <ul class="project-list-solar">
+          <li><strong>System design &amp; supply:</strong> Array layout, string SLDs, inverter sizing, BESS integration &amp; protections.</li>
+          <li><strong>Installation &amp; commissioning:</strong> Mounting, cabling, earthing, protection checks, performance tuning.</li>
+          <li><strong>Testing:</strong> Factory Acceptance Testing (FAT) and Site Acceptance Testing (SAT) with signed reports.</li>
+        </ul>
+
+        <div class="project-cta-row-solar">
+          <a href="#contact" class="project-btn-solar" aria-label="Request a similar solution">Request Similar Solution ↗</a>
+          <!-- <a href="#more-projects" class="project-link-solar" aria-label="View more projects">More Projects</a> -->
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <section id="about-us" class="cmms-contact-form-wrap">
+    <div class="cmms-contact-form-inner">
+
+      <a href="#contact" class="cmms-contact-form-badge2 reveal-up">
+        <p class="eyebrow-neplan-what-we-bring reveal-up">About us</p>
+      </a>
+
+      <h2 class="title-meet-ieng-about reveal-up">
+        About us – where vision meets execution!
+      </h2>
+
+
+
+      <p class="about-text-abou-ieng reveal-up">
+        iEngineering is your trusted partner for advanced electrical and energy solutions across Australia, Fiji, and India. We deliver high-quality hardware products   from switchboards and transformers to solar, BESS, and EV charging systems   backed by expert engineering, reliable installation, and dedicated local support.</strong>
+      </p>
+
+    </div>
+  </section>
+
+  
+
+  <section class="cmms-contact-form-wrap">
+<section class="-gemini-mission-section">
+  <div class="-gemini-tabs-container">
+    <button class="-gemini-tab active" data-tab="mission">Mission</button>
+    <button class="-gemini-tab" data-tab="vision">Vision</button>
+    <button class="-gemini-tab" data-tab="values">Values</button>
+  </div>
+
+  <div class="-gemini-content-wrapper">
+    <div class="-gemini-content active reveal-mobility" id="mission-content">
+      <div class="-gemini-text-content">
+        <h2 class="title-meet-ieng-about reveal-mobility">Our Mission</h2>
+        <p class="reveal-mobility">At iEngineering Australia, our mission is to enhance efficiency, ensure quality control, and deliver customer satisfaction through innovative engineering solutions. We are committed to global standards and sustainable solutions that create long-term value for our clients and communities.</p>
+      </div>
+      <div class="-gemini-image-content reveal-mobility">
+        <img src="{% static 'images/mission.avif' %}" alt="Mission Image">
+      </div>
+    </div>
+
+    <div class="-gemini-content" id="vision-content">
+      <div class="-gemini-text-content reveal-mobility">
+        <h2 class="title-meet-ieng-about reveal-mobility">Our Vision</h2>
+        <p class="reveal-mobility">Our vision is to be a global leader in engineering solutions, driving industry leadership, innovation, and customer-centric growth. We aim to inspire through global influence, foster expansion and growth, and play an inspirational role in shaping the future of engineering.</p>
+      </div>
+      <div class="-gemini-image-content reveal-mobility">
+        <img src="{% static 'images/vision.avif' %}" alt="Vision Image">
+      </div>
+    </div>
+
+    <div class="-gemini-content reveal-mobility" id="values-content">
+      <div class="-gemini-text-content">
+        <h2 class="title-meet-ieng-about reveal-mobility">Our Values</h2>
+        <p class="reveal-mobility">Our values guide everything we do: integrity & ethics, a strong commitment to quality, and diversity & inclusion. Safety, reliability, and continuous improvement are the cornerstones of our success, enabling us to deliver trusted and innovative solutions worldwide.</p>
+      </div>
+      <div class="-gemini-image-content reveal-mobility">
+        <img src="{% static 'images/values.avif' %}" alt="Values Image">
+      </div>
+    </div>
+  </div>
+</section>
+
+  </section>
+  <section class="section-meet-ieng-about" id="team">
+    <div class="container-meet-ieng-about">
+      <header class="header-meet-ieng-about">
+        <p class="eyebrow-neplan-what-we-bring reveal-up">Our Journey</p>
+        <!-- <h2 class="title-meet-ieng-about reveal-up"></h2> -->
+        <p class="subtitle-meet-ieng-about reveal-up">
+          Founded in 2013, iEngineering Australia delivers a comprehensive range of high-quality electrical and energy hardware solutions tailored for Australian and Pacific conditions. From design and engineering to manufacturing, testing, and commissioning support, we ensure every product   whether switchboards, transformers, solar systems, or EV chargers   is safe, reliable, and built to last.
+        </p>
+      </header>
+
+
+    </div>
+  </section>
+
+  <section class="section-meet-ieng-about" id="team">
+    <div class="container-meet-ieng-about">
+      <header class="header-meet-ieng-about">
+        <p class="eyebrow-neplan-what-we-bring reveal-up">Where We Operate</p>
+
+        <p class="subtitle-meet-ieng-about reveal-up saw">
+          iEngineering Australia operates across Australia, Fiji, and India, delivering reliable technology and asset
+          management solutions to organizations of all sizes-from local enterprises to large multinational companies.
+
+
+        </p>
+      </header>
+
+
+      <!-- =======================
+     NEPLAN - Locations
+     ======================= -->
+      <section class="neplan-locations-wrap">
+        <div class="neplan-locations-grid">
+
+          <!-- Australia – Sydney -->
+          <article class="neplan-locations-card neplan-locations-card--au">
+            <header class="neplan-locations-header">
+              <span class="neplan-locations-icon" aria-hidden="true">
+                <!-- Location pin -->
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                  <path
+                    d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+              <h3 class="neplan-locations-title reveal-right">Australia – Sydney</h3>
+            </header>
+
+            <p class="neplan-locations-phone reveal-right"><strong>Phone:</strong> +61 (02) 8318 1490</p>
+            <p class="neplan-locations-email reveal-right">
+              <strong class="reveal-right reveal-right">Email:</strong>
+              <a href="mailto:dnaiker@iengaust.com.au reveal-right">dnaiker@iengaust.com.au</a>
+            </p>
+            <p class="neplan-locations-address reveal-right">
+              Warawara Cct, Quakers Hill NSW 2763, Australia
+            </p>
+
+            <a class="neplan-locations-map reveal-right" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/place/iEngineering+Australia/@-33.7235328,150.8746483,349m/data=!3m3!1e3!4b1!5s0x6b12994c8f100b83:0xc573a44ab66823ee!4m6!3m5!1s0x1b47c40472e681d:0x111e8f0e95cba38f!8m2!3d-33.7235345!4d150.8756411!16s%2Fg%2F11b7cc3cnq?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTEwOS4wIKXMDSoASAFQAw%3D%3D">
+              View map
+            </a>
+          </article>
+
+          <!-- India – Pune -->
+          <article class="neplan-locations-card neplan-locations-card--in">
+            <header class="neplan-locations-header">
+              <span class="neplan-locations-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                  <path
+                    d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+              <h3 class="neplan-locations-title reveal-right">India – Pune</h3>
+            </header>
+
+            <p class="neplan-locations-phone reveal-right"><strong>Phone:</strong> +91 9168627258</p>
+            <p class="neplan-locations-email reveal-right">
+              <strong>Email:</strong>
+              <a href="mailto:shila@iengaust.com.au reveal-right">shila@iengaust.com.au</a>
+            </p>
+            <p class="neplan-locations-address reveal-right">
+              Navale IT Zone, Office No. 501, 5th Floor, A-Wing, Near Navale Bridge, Mumbai-Bangalore Highway,
+              Narhe, Pune – 411041.
+            </p>
+
+            <a class="neplan-locations-map reveal-right" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/place/Truecue+iEngineering+India+Pvt+Ltd/@18.4598087,73.820123,796m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc2bf393571e765:0x7f82ec8c697cb907!8m2!3d18.4598036!4d73.8226979!16s%2Fg%2F11g2wv4fpd?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTEwOS4wIKXMDSoASAFQAw%3D%3D">
+              View map
+            </a>
+          </article>
+
+          <!-- Fiji – Suva -->
+          <article class="neplan-locations-card neplan-locations-card--fj">
+            <header class="neplan-locations-header">
+              <span class="neplan-locations-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+                  <path
+                    d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                    fill="currentColor" />
+                </svg>
+              </span>
+              <h3 class="neplan-locations-title reveal-right">Fiji – Suva</h3>
+            </header>
+
+            <p class="neplan-locations-phone reveal-right"><strong>Phone:</strong> +679 9488589</p>
+            <p class="neplan-locations-email reveal-right">
+              <strong>Email:</strong>
+              <a href="mailto:dnaiker@iengaust.com.au reveal-right">dnaiker@iengaust.com.au</a>
+            </p>
+            <p class="neplan-locations-address reveal-right">
+              Lot 17, River Drive, Pacific Harbour, Navua, Suva, Fiji.
+            </p>
+
+            <a class="neplan-locations-map reveal-right" target="_blank" rel="noopener"
+              href="https://www.google.com/maps/search/Lot+17,+River+Drive+Pacific+Harbour+Navua+Suva+Fiji/">
+              View map
+            </a>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </section>
+  <section id="contact">
+
+
+
+    {% include "components/contact_block.html" with form_only=True %}
+
+  </section>
+  {% include 'footer.html' %}
+
+  <!-- Link to Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script defer src="{% static 'js/demo_form.js' %}"></script>
+  <script defer src="{% static 'js/main.js' %}"></script>
+  <script defer src="{% static 'js/neplan.js'%}"></script>
+
+
+  <script>(() => {
+      const targets = document.querySelectorAll(
+        '.reveal-top-solar-system-pylon, .reveal-left-solar-system-pylon, .reveal-right-solar-system-pylon, .reveal-up-solar-system-pylon'
+      );
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('reveal-in-solar-system-pylon');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      targets.forEach((el) => io.observe(el));
+    })();</script>
+  <script>(() => {
+      const SELECTOR = '.reveal-left, .reveal-right, .reveal-up, .reveal-down';
+
+      // Apply per-element delay from data attribute if provided
+      document.querySelectorAll(SELECTOR).forEach(el => {
+        const d = el.getAttribute('data-reveal-delay');
+        if (d) el.style.setProperty('--reveal-delay', /^\d+$/.test(d) ? `${d}ms` : d);
+      });
+
+      // Auto-stagger children inside a .reveal-group
+      document.querySelectorAll('.reveal-group[data-reveal-stagger]').forEach(group => {
+        const step = parseInt(group.dataset.revealStagger, 10) || 120; // ms
+        let i = 0;
+        group.querySelectorAll(SELECTOR).forEach(el => {
+          el.style.setProperty('--reveal-delay', `${i * step}ms`);
+          i++;
+        });
+      });
+
+      // Observe and toggle visibility (replays when scrolling back unless .reveal-once)
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (isIntersecting) target.classList.add('is-visible');
+          else if (!target.classList.contains('reveal-once'))
+            target.classList.remove('is-visible');
+        });
+      }, { threshold: 0.18 });
+
+      document.querySelectorAll(SELECTOR).forEach(el => io.observe(el));
+    })();</script>
+  <script defer src="{% static 'js/neplan.js'%}"></script>
+  <script src="{% static 'js/main.js'%}"></script>
+  <script>
+    (function () {
+      const mapEl = document.getElementById('nml-map');
+
+      // 1) Base "Map" (street) layer
+      const street = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { maxZoom: 19, attribution: '&copy; OpenStreetMap' }
+      );
+
+      // 2) Hybrid = satellite imagery + transparent labels overlay
+      const imagery = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{x}/{y}',
+        { maxZoom: 19, attribution: 'Tiles &copy; Esri - World Imagery' }
+      );
+      const labels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+        {
+          subdomains: 'abcd',
+          maxZoom: 20,
+          opacity: 0.95,
+          attribution: '&copy; OpenStreetMap contributors & CartoDB'
+        }
+      );
+      // LayerGroup allows us to add/remove both at once
+      const hybrid = L.layerGroup([imagery, labels]);
+
+      // Create map with default street layer
+      const map = L.map(mapEl, {
+        center: [-15, 120],
+        zoom: 3,
+        layers: [street],
+        zoomControl: true
+      });
+
+      // --- Your markers section (unchanged) ---
+      const LOCS = [
+        { title: 'Australia – Sydney', lat: -33.723524, lng: 150.875902, g: 'https://www.google.com/maps?ll=-33.723524,150.875902&z=5&t=m&hl=en-US&gl=US&mapclient=embed&cid=2860432314088839065' },
+        { title: 'India – Pune', lat: 18.4597518, lng: 73.8199254, g: 'https://maps.app.goo.gl/bDasJq7fErqsphp97' },
+        { title: 'Fiji – Suva', lat: -18.1654467, lng: 178.1218869, g: 'https://maps.app.goo.gl/cDMZMfo9R9Mfdm2Z7' },
+      ];
+      const pin = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        iconAnchor: [12, 41], popupAnchor: [0, -34]
+      });
+      const group = L.featureGroup();
+      LOCS.forEach(p => {
+        L.marker([p.lat, p.lng], { icon: pin })
+          .bindPopup(`<strong>${p.title}</strong><br>
+                  <a href="${p.g}" target="_blank" rel="noopener">Open in Google Maps</a>`)
+          .addTo(group);
+      });
+      group.addTo(map);
+      map.fitBounds(group.getBounds().pad(0.3));
+
+      // Set "View larger map" link by center/zoom
+      const viewLink = document.getElementById('nml-view-link');
+      function updateViewLink() {
+        const c = map.getCenter();
+        viewLink.href = `https://www.google.com/maps/@${c.lat.toFixed(5)},${c.lng.toFixed(5)},${map.getZoom()}z`;
+      }
+      map.on('moveend zoomend', updateViewLink);
+      updateViewLink();
+
+      // --- Toggle between street and hybrid ---
+      const toggles = document.querySelectorAll('.nml-toggle');
+      let currentBase = street;           // track current base for removal
+
+      function setBase(which) {
+        if (map.hasLayer(currentBase)) map.removeLayer(currentBase);
+        currentBase = (which === 'hybrid') ? hybrid : street;
+        map.addLayer(currentBase);
+      }
+
+      toggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggles.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          setBase(btn.dataset.layer);
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const mapEl = document.getElementById('nml-map');
+
+      /* ---------- Base layers ---------- */
+      const street = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { maxZoom: 19, attribution: '&copy; OpenStreetMap' }
+      );
+
+      // Hybrid = imagery + transparent labels
+      const imagery = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{x}/{y}',
+        { maxZoom: 19, attribution: 'Tiles &copy; Esri - World Imagery' }
+      );
+      const labels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+        { subdomains: 'abcd', maxZoom: 20, opacity: 0.95, attribution: '&copy; OpenStreetMap & Carto' }
+      );
+      const hybrid = L.layerGroup([imagery, labels]);
+
+      /* ---------- Map ---------- */
+      const map = L.map(mapEl, {
+        center: [-15, 120],
+        zoom: 3,
+        layers: [street],
+        zoomControl: true
+      });
+
+      /* ---------- Pins ---------- */
+      const LOCS = [
+        { title: 'Australia – Sydney', lat: -33.723524, lng: 150.875902, g: 'https://www.google.com/maps?q=-33.723524,150.875902' },
+        { title: 'India – Pune', lat: 18.4597518, lng: 73.8225003, g: 'https://www.google.com/maps?q=18.4597518,73.8225003' },
+        { title: 'Fiji – Suva', lat: -18.1642523, lng: 177.6272352, g: 'https://www.google.com/maps?q=-18.1642523,177.6272352' },
+      ];
+      const pin = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        iconAnchor: [12, 41], popupAnchor: [0, -34]
+      });
+      const group = L.featureGroup();
+      LOCS.forEach(p => {
+        L.marker([p.lat, p.lng], { icon: pin })
+          .bindPopup(`<strong>${p.title}</strong><br>
+                  <a href="${p.g}" target="_blank" rel="noopener">Open in Google Maps</a>`)
+          .addTo(group);
+      });
+      group.addTo(map);
+      map.fitBounds(group.getBounds().pad(0.3));
+
+      /* ---------- Update “View larger map” link ---------- */
+      const viewLink = document.getElementById('nml-view-link');
+      function updateViewLink() {
+        const c = map.getCenter();
+        viewLink.href = `https://www.google.com/maps/@${c.lat.toFixed(5)},${c.lng.toFixed(5)},${map.getZoom()}z`;
+      }
+      map.on('moveend zoomend', updateViewLink);
+      updateViewLink();
+
+      /* ---------- Lock / enable interaction ---------- */
+      const container = map.getContainer();
+
+      function lockMap() {
+        map.scrollWheelZoom.disable();
+        map.touchZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        map.dragging.disable();
+        if (map.tap) map.tap.disable();
+        container.classList.add('map-locked');
+      }
+      function unlockMap() {
+        map.scrollWheelZoom.enable();
+        map.touchZoom.enable();
+        map.boxZoom.enable();
+        map.keyboard.enable();
+        map.dragging.enable();
+        if (map.tap) map.tap.enable();
+        container.classList.remove('map-locked');
+      }
+      lockMap();
+
+      // Helper overlay
+      const guard = document.createElement('div');
+      guard.className = 'nml-map-guard';
+      guard.innerHTML = `
+    <span>Click to interact · <kbd>Ctrl</kbd> + wheel to zoom</span>
+    <button type="button">Enable map</button>
+  `;
+      container.appendChild(guard);
+
+      guard.querySelector('button').addEventListener('click', () => {
+        unlockMap();
+        guard.style.display = 'none';
+      });
+
+      // Only allow wheel zoom with Ctrl
+      container.addEventListener('wheel', (e) => {
+        if (!e.ctrlKey) {
+          e.preventDefault();     // page keeps scrolling; map won’t zoom
+        } else if (!map.scrollWheelZoom.enabled()) {
+          unlockMap();
+          guard.style.display = 'none';
+        }
+      }, { passive: false });
+
+      // Re-lock when leaving the map
+      map.on('mouseout', () => {
+        lockMap();
+        guard.style.display = '';
+      });
+      map.on('touchend', () => {
+        lockMap();
+        guard.style.display = '';
+      });
+
+      /* ---------- (Optional) switch base layers programmatically ----------
+         Call setBase('hybrid') or setBase('street') from a UI button if you add one. */
+      let currentBase = street;
+      function setBase(which) {
+        if (map.hasLayer(currentBase)) map.removeLayer(currentBase);
+        currentBase = (which === 'hybrid') ? hybrid : street;
+        map.addLayer(currentBase);
+      }
+      // Example: setBase('street'); setBase('hybrid');
+    })();
+  </script>
+
+
+
+  <script>(() => {
+      const SELECTOR = '.reveal-left, .reveal-right, .reveal-up, .reveal-down';
+
+      // Apply per-element delay from data attribute if provided
+      document.querySelectorAll(SELECTOR).forEach(el => {
+        const d = el.getAttribute('data-reveal-delay');
+        if (d) el.style.setProperty('--reveal-delay', /^\d+$/.test(d) ? `${d}ms` : d);
+      });
+
+      // Auto-stagger children inside a .reveal-group
+      document.querySelectorAll('.reveal-group[data-reveal-stagger]').forEach(group => {
+        const step = parseInt(group.dataset.revealStagger, 10) || 120; // ms
+        let i = 0;
+        group.querySelectorAll(SELECTOR).forEach(el => {
+          el.style.setProperty('--reveal-delay', `${i * step}ms`);
+          i++;
+        });
+      });
+
+      // Observe and toggle visibility (replays when scrolling back unless .reveal-once)
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (isIntersecting) target.classList.add('is-visible');
+          else if (!target.classList.contains('reveal-once'))
+            target.classList.remove('is-visible');
+        });
+      }, { threshold: 0.18 });
+
+      document.querySelectorAll(SELECTOR).forEach(el => io.observe(el));
+    })();</script>
+  <script defer src="{% static 'js/neplan.js'%}"></script>
+  <script src="{% static 'js/main.js'%}"></script>
+  <script>
+    (function () {
+      const mapEl = document.getElementById('nml-map');
+
+      // 1) Base "Map" (street) layer
+      const street = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { maxZoom: 19, attribution: '&copy; OpenStreetMap' }
+      );
+
+      // 2) Hybrid = satellite imagery + transparent labels overlay
+      const imagery = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{x}/{y}',
+        { maxZoom: 19, attribution: 'Tiles &copy; Esri - World Imagery' }
+      );
+      const labels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+        {
+          subdomains: 'abcd',
+          maxZoom: 20,
+          opacity: 0.95,
+          attribution: '&copy; OpenStreetMap contributors & CartoDB'
+        }
+      );
+      // LayerGroup allows us to add/remove both at once
+      const hybrid = L.layerGroup([imagery, labels]);
+
+      // Create map with default street layer
+      const map = L.map(mapEl, {
+        center: [-15, 120],
+        zoom: 3,
+        layers: [street],
+        zoomControl: true
+      });
+
+      // --- Your markers section (unchanged) ---
+      const LOCS = [
+        { title: 'Australia – Sydney', lat: -33.723524, lng: 150.875902, g: 'https://www.google.com/maps?ll=-33.723524,150.875902&z=5&t=m&hl=en-US&gl=US&mapclient=embed&cid=2860432314088839065' },
+        { title: 'India – Pune', lat: 18.4597518, lng: 73.8199254, g: 'https://maps.app.goo.gl/bDasJq7fErqsphp97' },
+        { title: 'Fiji – Suva', lat: -18.1654467, lng: 178.1218869, g: 'https://maps.app.goo.gl/cDMZMfo9R9Mfdm2Z7' },
+      ];
+      const pin = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        iconAnchor: [12, 41], popupAnchor: [0, -34]
+      });
+      const group = L.featureGroup();
+      LOCS.forEach(p => {
+        L.marker([p.lat, p.lng], { icon: pin })
+          .bindPopup(`<strong>${p.title}</strong><br>
+                  <a href="${p.g}" target="_blank" rel="noopener">Open in Google Maps</a>`)
+          .addTo(group);
+      });
+      group.addTo(map);
+      map.fitBounds(group.getBounds().pad(0.3));
+
+      // Set "View larger map" link by center/zoom
+      const viewLink = document.getElementById('nml-view-link');
+      function updateViewLink() {
+        const c = map.getCenter();
+        viewLink.href = `https://www.google.com/maps/@${c.lat.toFixed(5)},${c.lng.toFixed(5)},${map.getZoom()}z`;
+      }
+      map.on('moveend zoomend', updateViewLink);
+      updateViewLink();
+
+      // --- Toggle between street and hybrid ---
+      const toggles = document.querySelectorAll('.nml-toggle');
+      let currentBase = street;           // track current base for removal
+
+      function setBase(which) {
+        if (map.hasLayer(currentBase)) map.removeLayer(currentBase);
+        currentBase = (which === 'hybrid') ? hybrid : street;
+        map.addLayer(currentBase);
+      }
+
+      toggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggles.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          setBase(btn.dataset.layer);
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const mapEl = document.getElementById('nml-map');
+
+      /* ---------- Base layers ---------- */
+      const street = L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        { maxZoom: 19, attribution: '&copy; OpenStreetMap' }
+      );
+
+      // Hybrid = imagery + transparent labels
+      const imagery = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{x}/{y}',
+        { maxZoom: 19, attribution: 'Tiles &copy; Esri - World Imagery' }
+      );
+      const labels = L.tileLayer(
+        'https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',
+        { subdomains: 'abcd', maxZoom: 20, opacity: 0.95, attribution: '&copy; OpenStreetMap & Carto' }
+      );
+      const hybrid = L.layerGroup([imagery, labels]);
+
+      /* ---------- Map ---------- */
+      const map = L.map(mapEl, {
+        center: [-15, 120],
+        zoom: 3,
+        layers: [street],
+        zoomControl: true
+      });
+
+      /* ---------- Pins ---------- */
+      const LOCS = [
+        { title: 'Australia – Sydney', lat: -33.723524, lng: 150.875902, g: 'https://www.google.com/maps?q=-33.723524,150.875902' },
+        { title: 'India – Pune', lat: 18.4597518, lng: 73.8225003, g: 'https://www.google.com/maps?q=18.4597518,73.8225003' },
+        { title: 'Fiji – Suva', lat: -18.1642523, lng: 177.6272352, g: 'https://www.google.com/maps?q=-18.1642523,177.6272352' },
+      ];
+      const pin = L.icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+        iconAnchor: [12, 41], popupAnchor: [0, -34]
+      });
+      const group = L.featureGroup();
+      LOCS.forEach(p => {
+        L.marker([p.lat, p.lng], { icon: pin })
+          .bindPopup(`<strong>${p.title}</strong><br>
+                  <a href="${p.g}" target="_blank" rel="noopener">Open in Google Maps</a>`)
+          .addTo(group);
+      });
+      group.addTo(map);
+      map.fitBounds(group.getBounds().pad(0.3));
+
+      /* ---------- Update “View larger map” link ---------- */
+      const viewLink = document.getElementById('nml-view-link');
+      function updateViewLink() {
+        const c = map.getCenter();
+        viewLink.href = `https://www.google.com/maps/@${c.lat.toFixed(5)},${c.lng.toFixed(5)},${map.getZoom()}z`;
+      }
+      map.on('moveend zoomend', updateViewLink);
+      updateViewLink();
+
+      /* ---------- Lock / enable interaction ---------- */
+      const container = map.getContainer();
+
+      function lockMap() {
+        map.scrollWheelZoom.disable();
+        map.touchZoom.disable();
+        map.boxZoom.disable();
+        map.keyboard.disable();
+        map.dragging.disable();
+        if (map.tap) map.tap.disable();
+        container.classList.add('map-locked');
+      }
+      function unlockMap() {
+        map.scrollWheelZoom.enable();
+        map.touchZoom.enable();
+        map.boxZoom.enable();
+        map.keyboard.enable();
+        map.dragging.enable();
+        if (map.tap) map.tap.enable();
+        container.classList.remove('map-locked');
+      }
+      lockMap();
+
+      // Helper overlay
+      const guard = document.createElement('div');
+      guard.className = 'nml-map-guard';
+      guard.innerHTML = `
+    <span>Click to interact · <kbd>Ctrl</kbd> + wheel to zoom</span>
+    <button type="button">Enable map</button>
+  `;
+      container.appendChild(guard);
+
+      guard.querySelector('button').addEventListener('click', () => {
+        unlockMap();
+        guard.style.display = 'none';
+      });
+
+      // Only allow wheel zoom with Ctrl
+      container.addEventListener('wheel', (e) => {
+        if (!e.ctrlKey) {
+          e.preventDefault();     // page keeps scrolling; map won’t zoom
+        } else if (!map.scrollWheelZoom.enabled()) {
+          unlockMap();
+          guard.style.display = 'none';
+        }
+      }, { passive: false });
+
+      // Re-lock when leaving the map
+      map.on('mouseout', () => {
+        lockMap();
+        guard.style.display = '';
+      });
+      map.on('touchend', () => {
+        lockMap();
+        guard.style.display = '';
+      });
+
+      /* ---------- (Optional) switch base layers programmatically ----------
+         Call setBase('hybrid') or setBase('street') from a UI button if you add one. */
+      let currentBase = street;
+      function setBase(which) {
+        if (map.hasLayer(currentBase)) map.removeLayer(currentBase);
+        currentBase = (which === 'hybrid') ? hybrid : street;
+        map.addLayer(currentBase);
+      }
+      // Example: setBase('street'); setBase('hybrid');
+    })();
+  </script>
+
+  <!-- for download button -->
+
+
+  <script>
+    (() => {
+      if (window.__downloadFormBound) return;
+      window.__downloadFormBound = true;
+
+      const form = document.getElementById('csc-form');
+      const btns = document.querySelectorAll('.request-download-csc-solar-system-csc-products');
+      const docEl = document.getElementById('csc-doc-name');
+      const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]')?.value || "";
+
+      btns.forEach(b => b.addEventListener('click', () => {
+        docEl.value = b.getAttribute('data-doc') || '';
+      }));
+
+      function triggerDownload(url) {
+        const a = document.createElement('a');
+        a.href = url; a.download = "";
+        document.body.appendChild(a); a.click(); a.remove();
+      }
+
+      let isSubmitting = false;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (isSubmitting) return;
+        isSubmitting = true;
+
+        try {
+          const res = await fetch('{% url "cmmsApp:request_download" %}', {
+            method: 'POST',
+            headers: { 'X-CSRFToken': csrftoken },
+            body: new FormData(form),
+            credentials: 'same-origin'
+          });
+
+          let data = null;
+          const ct = res.headers.get('content-type') || '';
+          data = ct.includes('application/json') ? await res.json() : { ok: false, error: `Server returned ${res.status}` };
+
+          if (!res.ok || !data.ok) {
+            alert(data.error || 'Something went wrong. Please try again.');
+            return;
+          }
+
+          if (data.download_url) {
+            sessionStorage.setItem('lastDownloadURL', data.download_url);
+            triggerDownload(data.download_url);
+          }
+          // Redirect to Thank You
+          window.location.href = '{% url "cmmsApp:contact_thanks" %}';
+
+        } catch (err) {
+          console.error(err);
+          alert('Network error. Please try again.');
+        } finally {
+          isSubmitting = false;
+        }
+      });
+    })();
+  </script>
+
+
+</body>
+
+</html>
