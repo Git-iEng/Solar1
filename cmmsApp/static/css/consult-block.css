@@ -1,18 +1,17 @@
 :root {
-  --c-bg: #21656e;
-  /* dark form card */
+  --c-bg: #21656e;             /* dark form card */
   --c-chip: #e7f6f2;
   --c-chip-text: #0b2a2a;
-  --c-accent: #10b981;
-  /* green */
-  --c-accent-2: #2dd4bf;
-  /* teal-ish */
+  --c-accent: #10b981;         /* green */
+  --c-accent-2: #2dd4bf;       /* teal-ish */
   --c-text: #0e1b2b;
   --c-muted: #5b6472;
   --c-white: #ffffff;
   --c-ring: rgba(255, 255, 255, .15);
   --c-shadow: 0 20px 70px rgba(2, 8, 23, .24);
 }
+
+/* ============ OUTER WRAPPER ============ */
 
 .consult-block {
   background: #ffffff;
@@ -28,11 +27,13 @@
   align-items: stretch;
 }
 
+/* form_only=True → only show the form column */
 .consult-block[data-form-only="1"] .consult-block__inner {
   grid-template-columns: 1fr;
 }
 
-/* Left */
+/* ============ LEFT (TEXT) SIDE ============ */
+
 .consult-left {
   position: relative;
   background: #fff;
@@ -82,14 +83,14 @@
   border-radius: 12px;
   font-weight: 800;
   background: #fff;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
 }
 
 .consult-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(2, 8, 23, .08);
   background-color: #0b2326;
-  color: white;
+  color: #ffffff;
 }
 
 .consult-photo {
@@ -106,7 +107,8 @@
   display: block;
 }
 
-/* Right - form */
+/* ============ RIGHT: FORM CARD ============ */
+
 .consult-form {
   background: var(--c-bg);
   color: #dbe7e8;
@@ -122,22 +124,36 @@
   font-size: clamp(1.2rem, 2.6vw, 1.6rem);
 }
 
+/* grid for inputs */
 .consult-grid {
   display: grid;
   gap: 12px;
   grid-template-columns: 1fr 1fr;
 }
-.consult-grid select{
-    appearance:none; -webkit-appearance:none; -moz-appearance:none;
-  background: rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23eaf4f5' d='M5.5 7.5l4.5 4.5 4.5-4.5z'/%3E%3C/svg%3E") no-repeat right 12px center / 14px;
+
+/* select on dark background */
+.consult-grid select {
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  background:
+    rgba(255,255,255,.06)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='%23eaf4f5' d='M5.5 7.5l4.5 4.5 4.5-4.5z'/%3E%3C/svg%3E")
+    no-repeat right 12px center / 14px;
   color:#eaf4f5;
   border:1px solid var(--c-ring);
   border-radius:10px;
   padding:.9rem 2.2rem .9rem .9rem;
   cursor:pointer;
 }
-.consult-grid input,
 
+/* options inside the dropdown */
+.consult-grid select option{
+  background:#0b2326;
+  color:#eaf4f5;
+}
+
+.consult-grid input,
 .consult-grid textarea {
   width: 100%;
   border-radius: 10px;
@@ -152,39 +168,42 @@
   color: rgba(255, 255, 255, .6);
 }
 
-/* span columns */
+/* textarea spans full width */
 .consult-grid textarea {
   grid-column: 1 / -1;
   min-height: 76px;
   resize: vertical;
 }
 
+/* send button (bottom-right on desktop) */
 .consult-send {
   grid-column: 2;
   justify-self: end;
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  background: #fff;
+  background: #ffffff;
   color: #0a2430;
   padding: .9rem 1rem;
   border-radius: 12px;
   border: 2px solid transparent;
   font-weight: 900;
   cursor: pointer;
-  transition: transform .2s ease, filter .2s ease;
+  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
 }
 
 .consult-send:hover {
   transform: translateY(-2px);
   filter: brightness(1.05);
-  
+  box-shadow: 0 10px 24px rgba(2,8,23,.18);
 }
 
+/* inline alerts inside card (disabled – we use global toast) */
 .consult-alert {
   margin-bottom: .8rem;
   padding: .6rem .8rem;
   border-radius: 10px;
+  display:none !important;
 }
 
 .consult-alert.success {
@@ -196,6 +215,8 @@
   background: #ffeaea;
   color: #7a0d0d;
 }
+
+/* ============ RESPONSIVE LAYOUT ============ */
 
 @media (max-width: 900px) {
   .consult-block__inner {
@@ -217,11 +238,8 @@
     justify-self: start;
   }
 }
-/* Option colors — supported by modern browsers */
-.consult-grid select option{
-  background:#0b2326;
-  color:#eaf4f5;
-}
+
+/* ============ FOCUS / VALIDATION / ANIMATIONS ============ */
 
 /* Improve focus ring on dark card */
 .consult-grid select:focus,
@@ -231,9 +249,19 @@
   outline-offset:0;
 }
 
-/* ---- Button spinner ---- */
+/* invalid fields */
+.consult-grid .is-invalid{
+  border-color:#ff6b6b !important;
+  box-shadow:0 0 0 3px rgba(255,107,107,.15);
+  animation: shake .25s ease-in-out 0s 2;
+}
+
+/* button spinner */
 .consult-send .spinner{
-  display:none; width:16px; height:16px; margin-left:.6rem;
+  display:none;
+  width:16px;
+  height:16px;
+  margin-left:.6rem;
   border-radius:50%;
   border:2px solid rgba(10,36,48,.25);
   border-top-color:#0a2430;
@@ -243,50 +271,35 @@
 .consult-send.is-loading .label{ opacity:.65; }
 .consult-send.is-loading{ cursor:wait; pointer-events:none; }
 
-/* ---- Invalid fields ---- */
-.consult-grid .is-invalid{
-  border-color:#ff6b6b !important;
-  box-shadow:0 0 0 3px rgba(255,107,107,.15);
-  animation: shake .25s ease-in-out 0s 2;
-}
-
-/* ---- Toast (top center) ---- */
+/* toast (old version – not used now) */
 .toast{
-  position:fixed; inset-inline:0; top:14px; margin-inline:auto;
+  position:fixed;
+  inset-inline:0;
+  top:14px;
+  margin-inline:auto;
   width:min(92%, 720px);
-  background:#132b2f; color:#f4fbfb;
+  background:#132b2f;
+  color:#f4fbfb;
   border:1px solid rgba(255,255,255,.12);
-  padding:.9rem 1rem; border-radius:12px;
+  padding:.9rem 1rem;
+  border-radius:12px;
   box-shadow:0 18px 56px rgba(2,8,23,.28);
   transform:translateY(-18px);
-  opacity:0; pointer-events:none; z-index:9999;
-  text-align:center; font-weight:700;
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+  text-align:center;
+  font-weight:700;
 }
 .toast--error{ background:#4a0e14; }
 .toast--success{ background:#0f3c2e; }
-.toast.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
-
-/* ---- Select menu on dark card ---- */
-.consult-grid select{
-  appearance:none; -webkit-appearance:none; -moz-appearance:none;
-  background: rgba(255,255,255,.06)
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20'%3E%3Cpath fill='%23eaf4f5' d='M5.5 7.5l4.5 4.5 4.5-4.5z'/%3E%3C/svg%3E")
-    no-repeat right 12px center / 14px;
-  color:#eaf4f5;
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
 }
-.consult-grid select option{ background:#0b2326; color:#eaf4f5; }
 
-/* ---- Animations ---- */
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes shake{
-  0%,100%{ transform:translateX(0); }
-  25%{ transform:translateX(-2px); }
-  75%{ transform:translateX(2px); }
-}
-/* Hide inline alert placeholders inside the form to avoid confusion */
-.consult-alert{ display:none !important; }
-
-/* Global toast pinned to top of the viewport */
+/* global toast (new) */
 .global-toast{
   position: fixed;
   left: 50%;
@@ -316,4 +329,70 @@
 
 @media (max-width: 520px){
   .global-toast{ width: calc(100% - 24px); }
+}
+
+/* animations */
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shake{
+  0%,100%{ transform:translateX(0); }
+  25%{ transform:translateX(-2px); }
+  75%{ transform:translateX(2px); }
+}
+
+/* ============ MOBILE TWEAK FOR CONTACT PAGE ============ */
+/* On small screens we center the whole card, with equal
+   left/right margin, and make sure no sideways scroll.     */
+
+@media (max-width: 680px){
+
+  html,
+  body{
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .consult-block{
+    padding: 0 16px 24px;     /* 16px margin from viewport edges */
+  }
+
+  .consult-block__inner{
+    width: 100%;
+    max-width: 420px;         /* width of the column */
+    margin-inline: auto;      /* <-- CENTER THIS */
+    display: block;
+  }
+
+  .consult-form{
+    width: 100%;
+    padding: 16px;
+    border-radius: 20px;
+  }
+}
+
+/* extra small phones */
+@media (max-width: 400px){
+  .consult-block{
+    padding-inline: 12px;
+  }
+}
+/* MOBILE: make form fields slightly narrower than the card */
+@media (max-width: 680px) {
+
+  .consult-grid {
+    justify-items: center;   /* center children inside grid */
+  }
+
+  .consult-grid input,
+  .consult-grid textarea,
+  .consult-grid select {
+    width: 92%;              /* shorter than card */
+    max-width: 92%;
+  }
+
+  /* keep the button aligned with the fields */
+  .consult-send {
+    width: auto;
+    justify-self: flex-start;
+    margin-left: 4%;
+  }
 }
