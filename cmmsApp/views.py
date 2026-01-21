@@ -116,9 +116,9 @@ def request_demo_view(request):
     country_code, dial = (country.split("|", 1) + [""])[:2]
 
     ts = timezone.now().strftime("%Y-%m-%d %H:%M:%S %Z")
-    subject = "New Transformer inquiry"
+    subject = "New Solar System inquiry"
     text_body = (
-        "A new Transformer inquiry request was submitted.\n\n"
+        "A new Solar System inquiry request was submitted.\n\n"
         f"Submitted: {ts}\n"
         f"IP: {request.META.get('REMOTE_ADDR','')}\n\n"
         f"Full name: {full_name}\n"
@@ -132,7 +132,7 @@ def request_demo_view(request):
     )
 
     html_body = f"""
-        <h2 style="margin:0 0 8px">New Transformer Inquiry Request</h2>
+        <h2 style="margin:0 0 8px">New Solar System Inquiry Request</h2>
         <p style="margin:0 0 12px;color:#334">Submitted {ts} from {request.META.get('REMOTE_ADDR','')}</p>
         <table cellpadding="6" cellspacing="0" style="border-collapse:collapse;background:#f9fbfc">
           <tr><td><b>Full name</b></td><td>{full_name}</td></tr>
