@@ -1,9 +1,9 @@
 # In iEngApp/urls.py
 from django.urls import path
 from . import views
-from .views import contact_section
+
 app_name = 'cmmsApp'
-from .views import request_demo_view
+
 from django.views.static import serve
 from django.conf import settings
 urlpatterns = [
