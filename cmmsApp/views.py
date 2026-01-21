@@ -129,6 +129,8 @@ def request_demo_view(request):
         f"Address: {address}\n\n"
         "Message:\n"
         f"{message or '(none)'}\n"
+        f"From: {request.META.get('HTTP_REFERER','')}\n"
+        f"IP:   {request.META.get('REMOTE_ADDR','')}\n"
     )
 
     html_body = f"""
@@ -317,7 +319,7 @@ def contact_block_submit(request):
     # --- Email notification ---
     subject = f"[Website] Consulting request: {name} – {service or 'General'}"
     text_body = "\n".join([
-        "A new consulting request was submitted:",
+        "A new consulting request was submitted for Solar:",
         f"Name: {name}",
         f"Email: {email}",
         f"Phone: {e164_phone or phone} ({dial_code})",
