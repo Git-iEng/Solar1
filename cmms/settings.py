@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tpzqxw&&@03wq2yzgf!gzh6u2=044s2j+_!#jioe(#f^6%quzo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # keep false on server, true locally if needed
+DEBUG = True  # keep false on server, true locally if needed
 
 if DEBUG:
     SECURE_SSL_REDIRECT = False
@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ["solar.ieng.tech", ".ieng.tech", "*"]
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
-CSRF_TRUSTED_ORIGINS = ["https://*.ieng.tech"]
+# CSRF_TRUSTED_ORIGINS = ["https://*.ieng.tech"]
 
 
 

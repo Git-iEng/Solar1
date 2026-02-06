@@ -29,12 +29,6 @@ PHONE_RE = re.compile(r"^\+?\d[\d\s\-()]{6,}$")
 
 
 
-
-def _static_abs_path(relpath: str) -> str | None:
-    """Return absolute path of a static file using Django's staticfiles finders, or None."""
-    return finders.find(relpath)
-
-
 # ---------- Email helpers ----------
 def _send_email(subject: str, text_body: str, html_body: str | None, recipients: list[str] | None):
     """Low-level sender used by async wrappers."""
@@ -72,6 +66,7 @@ def _send_contact_email_async(subject: str, text_body: str, html_body: str | Non
     """Fire-and-forget email for Contact form."""
     recipients = getattr(settings, "CONTACT_RECIPIENTS", None)
     Thread(target=_send_email, args=(subject, text_body, html_body, recipients), daemon=True).start()
+
 def request_demo_view(request):
     if request.method != "POST":
         return redirect("/")
@@ -191,10 +186,10 @@ def contact_section(request):
 
       
         # Email body
-        subject = "New website contact submission for CARL Software"
+        subject = "New website contact submission for Solar System"
         text_body = "\n".join(
             [
-                "New contact submission for CARL Software:",
+                "New contact submission for Solar System",
                 f"Name: {cd['first_name']} {cd.get('last_name','')}".strip(),
                 f"Company: {cd.get('company','')}",
                 f"Email: {cd['email']}",
