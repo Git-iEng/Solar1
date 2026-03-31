@@ -73,11 +73,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </select> -->
 
                 <textarea name="message" rows="2" placeholder="Your Message (optional)"></textarea>
+                  <div class="consult-actions">
+                    <div class="form-captcha">
+                        <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
+                    </div><br>
 
-                <button id="consult-submit" class="consult-send" type="submit">
-                    <span class="label">Send Message</span>
-                    <span class="spinner" aria-hidden="true"></span>
-                </button>
+                    <button id="consult-submit" class="consult-send" type="submit">
+                        <span class="label">Send Message</span>
+                        <span class="spinner" aria-hidden="true"></span>
+                    </button>
+                </div>
             </form>
         </div>
     </div>
@@ -253,4 +258,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     (document.querySelector('input[name=csrfmiddlewaretoken]')||{}).value || '';
 })();
 </script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

@@ -396,3 +396,42 @@
     margin-left: 4%;
   }
 }
+.form-captcha{
+  grid-column: 1;
+  width: 304px;
+  min-width: 304px;
+  min-height: 78px;
+  margin: 0;
+  overflow: visible;
+  display: flex;
+  align-items: flex-start;
+}
+
+.form-captcha .g-recaptcha{
+  width: 304px;
+  min-width: 304px;
+  min-height: 78px;
+  overflow: visible;
+}
+
+.consult-grid{
+  align-items: start;
+}
+
+@media (max-width: 680px){
+  .form-captcha{
+    width: 304px;
+    min-width: 304px;
+  }
+}
+
+@media (max-width: 480px){
+  .form-captcha{
+    min-height: 72px;
+  }
+
+  .form-captcha .g-recaptcha{
+    transform: scale(0.92);
+    transform-origin: left top;
+  }
+}

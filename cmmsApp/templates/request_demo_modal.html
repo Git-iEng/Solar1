@@ -60,12 +60,15 @@
         Your privacy is important to us. We’ll only use your information to communicate about Solar System.
       </p>
 
-      <div class="modal__footer">
-  <button class="btn-submit" id="submitBtn" type="submit" form="demoForm">
-    <span class="btn-label">Submit</span>
-    <span class="spinner" aria-hidden="true"></span>
-  </button>
-</div>
+            <div class="modal__footer">
+              <div class="form-captcha">
+                 <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
+              </div>
+              <button class="btn-submit" id="submitBtn" type="submit" form="demoForm">
+                <span class="btn-label">Submit</span>
+                <span class="spinner" aria-hidden="true"></span>
+              </button>
+            </div>
     </form>
     
 <!-- New footer OUTSIDE the form -->
@@ -73,3 +76,4 @@
   </div>
 </div>
 <div id="cmmsToastRoot" class="cmms-toast-wrap" aria-live="polite" aria-atomic="true"></div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
