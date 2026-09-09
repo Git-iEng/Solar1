@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tpzqxw&&@03wq2yzgf!gzh6u2=044s2j+_!#jioe(#f^6%quzo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # keep false on server, true locally if needed
+DEBUG = False# keep false on server, true locally if needed
 
 if DEBUG:
     SECURE_SSL_REDIRECT = False
@@ -157,11 +157,9 @@ EMAIL_HOST_USER = 'test@ieng.tech'  # Your email address
 EMAIL_HOST_PASSWORD = 'test@iEng'  # Your email password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CONTACT_RECIPIENTS = [
-    "shila@iengaust.com.au",
-   "kushankur@iengaust.com.au",
-   "amar@iengaust.com.au"
+   "shila@iengaust.com.au","test@ieng.tech","aarti@iengaust.com.au"
 ]
-CONTACT_RECIPIENTS = ["shila@iengaust.com.au", "kushankur@iengaust.com.au","amar@iengaust.com.au",]
+CONTACT_RECIPIENTS = ["shila@iengaust.com.au","test@ieng.tech","aarti@iengaust.com.au"]
 DEMO_RECIPIENTS = CONTACT_RECIPIENTS
 
 # CONTACT_EMAIL = 'diksha@iengaust.com.au'
