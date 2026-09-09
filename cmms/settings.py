@@ -409,7 +409,7 @@ EMAIL_USE_TLS = False
 
 EMAIL_HOST_USER = os.getenv(
     "EMAIL_HOST_USER",
-    ""
+    "test@ieng.tech"
 )
 
 
@@ -424,7 +424,7 @@ EMAIL_HOST_USER = os.getenv(
 
 EMAIL_HOST_PASSWORD = os.getenv(
     "EMAIL_HOST_PASSWORD",
-    ""
+    "test@iEng"
 )
 
 
@@ -494,13 +494,13 @@ CONTACT_INBOX = (
 
 RECAPTCHA_SITE_KEY = os.getenv(
     "RECAPTCHA_SITE_KEY",
-    ""
+    "6LdJgJgsAAAAACrJJ-nuo1Iw2sBxiKpTWADZ5stZ"
 )
 
 
 RECAPTCHA_SECRET_KEY = os.getenv(
     "RECAPTCHA_SECRET_KEY",
-    ""
+    "6LdJgJgsAAAAAMtKmtGv8pLZ3y7pvxV0UAe7Sx10"
 )
 
 
