@@ -289,7 +289,6 @@ def _send_contact_otp_email(
     otp: str
 ) -> None:
 
-
     subject = (
         "iEngineering Email Verification Code"
     )
@@ -427,6 +426,31 @@ def _send_contact_otp_email(
     message.send(
         fail_silently=False
     )
+
+
+# ============================================================
+# SEND OTP EMAIL (ASYNC WRAPPER)
+# ============================================================
+#
+# Runs _send_contact_otp_email() in a background thread so the
+# HTTP request returns immediately instead of blocking on the
+# SMTP handshake/send. This avoids Gunicorn/nginx timeouts when
+# the mail server is slow to respond.
+# ============================================================
+
+def _send_contact_otp_email_async(
+    email: str,
+    otp: str
+) -> None:
+
+    Thread(
+        target=_send_contact_otp_email,
+        args=(
+            email,
+            otp
+        ),
+        daemon=True
+    ).start()
 
 
 # ============================================================
@@ -581,45 +605,14 @@ def send_email_otp(
 
 
     # --------------------------------------------------------
-    # Send OTP email
+    # Send OTP email (async, so this request returns fast and
+    # does not block on the SMTP handshake/send)
     # --------------------------------------------------------
 
-    try:
-
-        _send_contact_otp_email(
-            email,
-            otp
-        )
-
-
-    except Exception as exc:
-
-
-        request.session.pop(
-            CONTACT_OTP_SESSION_KEY,
-            None
-        )
-
-
-        request.session.modified = True
-
-
-        print(
-            "OTP EMAIL ERROR:",
-            repr(exc)
-        )
-
-
-        return JsonResponse(
-            {
-                "ok": False,
-
-                "message":
-                    "We could not send the OTP. "
-                    "Please try again."
-            },
-            status=500
-        )
+    _send_contact_otp_email_async(
+        email,
+        otp
+    )
 
 
     # --------------------------------------------------------
