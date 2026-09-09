@@ -1,79 +1,537 @@
 {% load static %}
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<!-- Request Demo Modal -->
-<div class="modal" id="demoModal" aria-hidden="true">
-  <div class="modal__backdrop" data-close-demo></div>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
 
-  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
-    <button class="modal__close" type="button" data-close-demo aria-label="Close">×</button>
 
-    <h2 id="demoTitle" class="modal__title">Submit Inquiry</h2>
-    <p class="modal__subtitle">Fill in the details below and we’ll get you started.</p>
+<!-- =========================================================
+     REQUEST DEMO / SUBMIT INQUIRY MODAL
+========================================================= -->
 
-   <form id="demoForm" method="post" action="{% url 'cmmsApp:request_demo' %}" novalidate>
+<div
+  class="modal"
+  id="demoModal"
+  aria-hidden="true"
+>
+
+  <!-- Backdrop -->
+  <div
+    class="modal__backdrop"
+    data-close-demo
+  ></div>
+
+
+  <!-- Modal Dialog -->
+  <div
+    class="modal__dialog"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="demoTitle"
+  >
+
+
+    <!-- =====================================================
+         CLOSE BUTTON
+    ====================================================== -->
+
+    <button
+      class="modal__close"
+      type="button"
+      data-close-demo
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+
+
+    <!-- =====================================================
+         HEADING
+    ====================================================== -->
+
+    <h2
+      id="demoTitle"
+      class="modal__title"
+    >
+      Submit Inquiry
+    </h2>
+
+
+    <p class="modal__subtitle">
+      Fill in the details below and we’ll get you started.
+    </p>
+
+
+
+    <!-- =====================================================
+         FORM
+    ====================================================== -->
+
+    <form
+      id="demoForm"
+      method="post"
+      action="{% url 'cmmsApp:request_demo' %}"
+      data-send-otp-url="{% url 'cmmsApp:send_email_otp' %}"
+      data-verify-otp-url="{% url 'cmmsApp:verify_email_otp' %}"
+      novalidate
+    >
+
       {% csrf_token %}
 
+
       <div class="grid">
-        <div class="field">
-          <label for="full_name">Full Name*</label>
-          <input id="full_name" name="full_name" type="text" placeholder="Name" required>
-          <small class="error" data-error-for="full_name"></small>
-        </div>
+
+
+        <!-- =================================================
+             FULL NAME
+        ================================================== -->
 
         <div class="field">
-          <label for="company">Company*</label>
-          <input id="company" name="company" type="text" placeholder="Company" required>
-          <small class="error" data-error-for="company"></small>
+
+          <label for="full_name">
+            Full Name*
+          </label>
+
+
+          <input
+            id="full_name"
+            name="full_name"
+            type="text"
+            placeholder="Name"
+            autocomplete="name"
+            required
+          >
+
+
+          <small
+            class="error"
+            data-error-for="full_name"
+          ></small>
+
         </div>
 
-        <div class="field">
-          <label for="email">Email*</label>
-          <input id="email" name="email" type="email" placeholder="you@company.com" required>
-          <small class="error" data-error-for="email"></small>
-        </div>
+
+
+        <!-- =================================================
+             COMPANY
+        ================================================== -->
 
         <div class="field">
-          <label for="phone">Phone Number*</label>
-          <input id="phone" name="phone" type="tel" placeholder="+61 4xx xxx xxx" required>
-          <small class="error" data-error-for="phone"></small>
+
+          <label for="company">
+            Company*
+          </label>
+
+
+          <input
+            id="company"
+            name="company"
+            type="text"
+            placeholder="Company"
+            autocomplete="organization"
+            required
+          >
+
+
+          <small
+            class="error"
+            data-error-for="company"
+          ></small>
+
         </div>
 
-        <div class="field">
-          <label for="country">Country*</label>
-          <select id="country" name="country" required></select>
-          <small class="error" data-error-for="country"></small>
-        </div>
+
+
+        <!-- =================================================
+             EMAIL + INLINE OTP VERIFICATION
+        ================================================== -->
 
         <div class="field">
-          <label for="address">Address</label>
-          <input id="address" name="address" type="text" placeholder="Address">
+
+          <label for="email">
+            Email*
+          </label>
+
+
+          <div class="demo-email-wrap">
+
+
+            <!-- =============================================
+                 NORMAL EMAIL INPUT
+            ============================================== -->
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              class="demo-email-input"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required
+            >
+
+
+
+            <!-- =============================================
+                 OTP INPUT
+
+                 This appears in EXACTLY the same position
+                 as the email field after OTP is sent.
+            ============================================== -->
+
+            <input
+              id="demoOtp"
+              type="text"
+              class="demo-otp-inline-input"
+              maxlength="6"
+              inputmode="numeric"
+              autocomplete="one-time-code"
+              placeholder="Enter 6-digit OTP"
+              aria-label="Enter 6-digit OTP"
+              style="display:none;"
+            >
+
+
+
+            <!-- =============================================
+                 VERIFY EMAIL BUTTON
+            ============================================== -->
+
+            <button
+              type="button"
+              id="demoVerifyEmailBtn"
+              class="demo-verify-email"
+              style="display:none;"
+            >
+              Verify email
+            </button>
+
+
+
+            <!-- =============================================
+                 INLINE OTP ACTIONS
+
+                 Timer + Verify OTP + Resend
+                 all appear inside the same field.
+            ============================================== -->
+
+            <div
+              id="demoOtpSection"
+              class="demo-otp-inline-actions"
+              style="display:none;"
+            >
+
+
+              <!-- OTP Timer -->
+
+              <span
+                id="demoOtpTimer"
+                class="demo-otp-timer"
+              >
+                03:00
+              </span>
+
+
+
+              <!-- Verify OTP -->
+
+              <button
+                type="button"
+                id="demoVerifyOtpBtn"
+                class="demo-otp-inline-button"
+              >
+                Verify OTP
+              </button>
+
+
+
+              <!-- Resend OTP -->
+
+              <button
+                type="button"
+                id="demoResendOtpBtn"
+                class="demo-resend-inline"
+                style="display:none;"
+              >
+                Resend
+              </button>
+
+
+            </div>
+
+
+
+            <!-- =============================================
+                 EMAIL VERIFIED STATUS
+            ============================================== -->
+
+            <span
+              id="demoEmailVerified"
+              class="demo-email-verified"
+              style="display:none;"
+            >
+              ✓ Verified
+            </span>
+
+
+          </div>
+
+
+
+          <!-- =================================================
+               OTP MESSAGE
+
+               Kept for JavaScript logic,
+               but hidden because we don't want
+               another separate message box.
+          ================================================== -->
+
+          <span
+            id="demoOtpMessage"
+            style="display:none;"
+          ></span>
+
+
+
+          <!-- =================================================
+               EMAIL VERIFICATION TOKEN
+
+               This token is returned by verify_email_otp
+               and submitted with the final form.
+          ================================================== -->
+
+          <input
+            type="hidden"
+            name="email_verification_token"
+            id="demoEmailVerificationToken"
+            value=""
+          >
+
+
+
+          <!-- Email Error -->
+
+          <small
+            class="error"
+            data-error-for="email"
+          ></small>
+
         </div>
+
+
+
+        <!-- =================================================
+             PHONE NUMBER
+        ================================================== -->
+
+        <div class="field">
+
+          <label for="phone">
+            Phone Number*
+          </label>
+
+
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="+61 4xx xxx xxx"
+            autocomplete="tel"
+            required
+          >
+
+
+          <small
+            class="error"
+            data-error-for="phone"
+          ></small>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COUNTRY
+        ================================================== -->
+
+        <div class="field">
+
+          <label for="country">
+            Country*
+          </label>
+
+
+          <select
+            id="country"
+            name="country"
+            required
+          >
+          </select>
+
+
+          <small
+            class="error"
+            data-error-for="country"
+          ></small>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ADDRESS
+        ================================================== -->
+
+        <div class="field">
+
+          <label for="address">
+            Address
+          </label>
+
+
+          <input
+            id="address"
+            name="address"
+            type="text"
+            placeholder="Address"
+            autocomplete="street-address"
+          >
+
+
+          <small
+            class="error"
+            data-error-for="address"
+          ></small>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MORE INFORMATION
+        ================================================== -->
 
         <div class="field field--full">
-          <label for="message">More Information</label>
-          <textarea id="message" name="message" rows="3" placeholder="Message"></textarea>
+
+          <label for="message">
+            More Information
+          </label>
+
+
+          <textarea
+            id="message"
+            name="message"
+            rows="3"
+            placeholder="Message"
+          ></textarea>
+
         </div>
+
+
       </div>
 
+
+
+      <!-- ===================================================
+           PRIVACY MESSAGE
+      ==================================================== -->
+
       <p class="privacy">
-        Your privacy is important to us. We’ll only use your information to communicate about Solar System.
+        Your privacy is important to us.
+        We’ll only use your information to communicate
+        about Solar System.
       </p>
 
-            <div class="modal__footer">
-              <div class="form-captcha">
-                 <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
-              </div>
-              <button class="btn-submit" id="submitBtn" type="submit" form="demoForm">
-                <span class="btn-label">Submit</span>
-                <span class="spinner" aria-hidden="true"></span>
-              </button>
-            </div>
+
+
+      <!-- ===================================================
+           FORM FOOTER
+      ==================================================== -->
+
+      <div class="modal__footer">
+
+
+        <!-- =================================================
+             GOOGLE RECAPTCHA
+        ================================================== -->
+
+        <div class="form-captcha">
+
+          <div
+            class="g-recaptcha"
+            data-sitekey="{{ RECAPTCHA_SITE_KEY }}"
+          ></div>
+
+
+          <small
+            class="error"
+            data-error-for="captcha"
+          ></small>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUBMIT BUTTON
+
+             Initially disabled.
+             JavaScript enables it only after OTP verification.
+        ================================================== -->
+
+        <button
+          class="btn-submit"
+          id="submitBtn"
+          type="submit"
+          form="demoForm"
+          disabled
+        >
+
+          <span class="btn-label">
+            Submit
+          </span>
+
+
+          <span
+            class="spinner"
+            aria-hidden="true"
+          ></span>
+
+        </button>
+
+
+      </div>
+
+
     </form>
-    
-<!-- New footer OUTSIDE the form -->
 
   </div>
+
 </div>
-<div id="cmmsToastRoot" class="cmms-toast-wrap" aria-live="polite" aria-atomic="true"></div>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+
+<!-- =========================================================
+     TOAST NOTIFICATION ROOT
+========================================================= -->
+
+<div
+  id="cmmsToastRoot"
+  class="cmms-toast-wrap"
+  aria-live="polite"
+  aria-atomic="true"
+></div>
+
+
+
+<!-- =========================================================
+     GOOGLE RECAPTCHA
+========================================================= -->
+
+<script
+  src="https://www.google.com/recaptcha/api.js"
+  async
+  defer
+></script>

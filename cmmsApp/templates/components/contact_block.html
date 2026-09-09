@@ -1,5 +1,5 @@
 {% load static %}
-
+ 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -15,7 +15,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <section class="consult-block" {% if form_only %}data-form-only="1" {% endif %}>
     <div class="consult-block__inner">
-
+ 
         {% if not form_only %}
         <!-- Left side (you can replace this content per page) -->
         <aside class="consult-left">
@@ -38,101 +38,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="consult-alert {{ m.tags }}">{{ m }}</div>
             {% endfor %}
             {% endif %}
-
+ 
             <h3 class="consult-form__title">Send a message</h3>
-            
-
+           
+ 
             <form id="consult-form" class="consult-grid" method="post" action="{% url 'cmmsApp:contact_submit' %}"
                 novalidate>
                 {% csrf_token %}
-
+ 
                 <input type="text" name="name" placeholder="Your Name * " required>
-
-                <!-- Email + OTP verification -->
-                <div class="consult-email-verification">
-                    <div class="consult-email-input-wrap">
-                        <input
-                            type="email"
-                            name="email"
-                            id="cf_email"
-                            class="consult-email-input"
-                            placeholder="Your Email Address *"
-                            autocomplete="email"
-                            required
-                        >
-
-                        <button
-                            type="button"
-                            id="cf_verify_email"
-                            class="consult-verify-email-link"
-                            style="display:none;"
-                        >
-                            Verify email
-                        </button>
-
-                        <span
-                            id="cf_email_verified"
-                            class="consult-email-verified"
-                            style="display:none;"
-                        >
-                            ✓ Verified
-                        </span>
-                    </div>
-
-                    <div
-                        id="cf_otp_section"
-                        class="consult-otp-section"
-                        style="display:none;"
-                    >
-                        <div class="consult-otp-heading">
-                            <span>Enter the OTP sent to your email</span>
-                            <span id="cf_otp_timer" class="consult-otp-timer">03:00</span>
-                        </div>
-
-                        <div class="consult-otp-row">
-                            <input
-                                type="text"
-                                id="cf_otp"
-                                class="consult-otp-input"
-                                maxlength="6"
-                                inputmode="numeric"
-                                autocomplete="one-time-code"
-                                placeholder="Enter 6-digit OTP"
-                            >
-
-                            <button
-                                type="button"
-                                id="cf_verify_otp"
-                                class="consult-otp-button"
-                            >
-                                Verify OTP
-                            </button>
-                        </div>
-
-                        <div class="consult-otp-footer">
-                            <span id="cf_otp_message">OTP expires in 3 minutes.</span>
-
-                            <button
-                                type="button"
-                                id="cf_resend_otp"
-                                class="consult-resend-link"
-                                style="display:none;"
-                            >
-                                Resend OTP
-                            </button>
-                        </div>
-                    </div>
-
-                    <input
-                        type="hidden"
-                        name="email_verification_token"
-                        id="cf_email_verification_token"
-                        value=""
-                    >
-                </div>
-
+ 
+               
+              <!-- Email + OTP verification -->
+<div class="consult-email-verification">
+ 
+    <div class="consult-email-input-wrap">
+ 
+        <!-- Email input -->
+        <input
+            type="email"
+            name="email"
+            id="cf_email"
+            class="consult-email-input"
+            placeholder="Your Email Address *"
+            autocomplete="email"
+            required
+        >
+ 
+        <!-- OTP input - appears in SAME position -->
+        <input
+            type="text"
+            id="cf_otp"
+            class="consult-otp-inline-input"
+            maxlength="6"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            placeholder="Enter 6-digit OTP"
+            style="display:none;"
+        >
+ 
+        <!-- Verify email -->
+        <button
+            type="button"
+            id="cf_verify_email"
+            class="consult-verify-email-link"
+            style="display:none; color:black"
+        >
+            Verify email
+        </button>
+ 
+        <!-- OTP controls -->
+        <div
+            id="cf_otp_actions"
+            class="consult-otp-inline-actions"
+            style="display:none;"
+        >
+            <span
+                id="cf_otp_timer"
+                class="consult-otp-timer"
+            >
+                03:00
+            </span>
+ 
+            <button
+                type="button"
+                id="cf_verify_otp"
+                class="consult-otp-inline-button"
+            >
+                Verify OTP
+            </button>
+ 
+            <button
+                type="button"
+                id="cf_resend_otp"
+                class="consult-resend-inline"
+                style="display:none;"
+            >
+                Resend
+            </button>
+        </div>
+ 
+        <!-- Verified status -->
+        <span
+            id="cf_email_verified"
+            class="consult-email-verified"
+            style="display:none;"
+        >
+            ✓ Verified
+        </span>
+ 
+    </div>
+ 
+    <!-- Keep for JS but don't display as separate box -->
+    <span
+        id="cf_otp_message"
+        style="display:none;"
+    ></span>
+ 
+    <input
+        type="hidden"
+        name="email_verification_token"
+        id="cf_email_verification_token"
+        value=""
+    >
+ 
+</div>
+ 
                 <input type="text" name="phone" placeholder="Phone Number (e.g. +61 4xx…) *" id="cf_phone" required>
-
+ 
                 <select name="country" id="cf_country" class="select-country" required>
                     <option value="" selected disabled>Country *</option>
                     {% if countries %}
@@ -141,7 +154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     {% endfor %}
                     {% endif %}
                 </select>
-
+ 
                 <!-- <select name="service" aria-label="Select Services" required>
                     <option value="" selected disabled>Select Services *</option> -->
                     <!-- <option>NEPLAN Electricity</option> -->
@@ -154,13 +167,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <option>Additional CLoud</option>
                     <option>Additional Solutions</option>
                 </select> -->
-
+ 
                 <textarea name="message" rows="2" placeholder="Your Message (optional)"></textarea>
                   <div class="consult-actions">
                     <div class="form-captcha">
                         <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
                     </div><br>
-
+ 
                     <button id="consult-submit" class="consult-send" type="submit" disabled>
                         <span class="label">Send Message</span>
                         <span class="spinner" aria-hidden="true"></span>
@@ -170,70 +183,111 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 </section>
-
+ 
 <!-- Optional UX sync: derive country from +code or add dial code from country.
    Uses a tiny JSON endpoint provided below. Remove if you prefer only server-side logic.  -->
 <!-- Global top-of-page toast -->
 <div id="global-toast" class="global-toast" role="status" aria-live="polite"></div>
-
+ 
 <style>
     /* =========================================================
        EMAIL OTP VERIFICATION
     ========================================================== */
-
-    .consult-email-verification {
-        width: 100%;
-        min-width: 0;
-    }
-
-    .consult-email-input-wrap {
-        position: relative;
-        width: 100%;
-    }
-
-    .consult-email-input-wrap .consult-email-input {
-        width: 100%;
-        padding-right: 120px !important;
-        box-sizing: border-box;
-    }
-
-    .consult-verify-email-link {
-        position: absolute;
-        top: 50%;
-        right: 18px;
-        transform: translateY(-50%);
-        padding: 4px 0;
-        border: 0;
-        background: transparent;
-        color: #ffffff;
-        font: inherit;
-        font-size: 14px;
-        font-weight: 700;
-        text-decoration: underline;
-        cursor: pointer;
-        z-index: 2;
-    }
-
-    .consult-verify-email-link:hover {
-        opacity: .82;
-    }
-
-    .consult-verify-email-link:disabled {
-        opacity: .5;
-        cursor: not-allowed;
-    }
-
-    .consult-email-verified {
-        position: absolute;
-        top: 50%;
-        right: 18px;
-        transform: translateY(-50%);
-        color: #d4ffe1;
-        font-size: 14px;
-        font-weight: 700;
-        white-space: nowrap;
-    }
-
+ 
+   .consult-email-verification {
+    width: 100%;
+    min-width: 0;
+}
+ 
+.consult-email-input-wrap {
+    position: relative;
+    width: 100%;
+}
+ 
+.consult-email-input,
+.consult-otp-inline-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+ 
+.consult-email-input {
+    padding-right: 130px !important;
+}
+ 
+.consult-otp-inline-input {
+    padding-right: 230px !important;
+    letter-spacing: 3px;
+}
+ 
+/* Verify email link */
+.consult-verify-email-link {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+ 
+    border: 0;
+    background: transparent;
+ 
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+ 
+    cursor: pointer;
+}
+ 
+/* OTP controls inside same field */
+.consult-otp-inline-actions {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+ 
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+ 
+.consult-otp-timer {
+    font-weight: 700;
+    white-space: nowrap;
+}
+ 
+.consult-otp-inline-button {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 15px;
+ 
+    background: #ffffff;
+    color: #0b2239;
+ 
+    font-weight: 700;
+    cursor: pointer;
+}
+ 
+.consult-resend-inline {
+    border: 0;
+    background: transparent;
+ 
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: underline;
+ 
+    cursor: pointer;
+}
+ 
+/* Verified badge */
+.consult-email-verified {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+ 
+    color: #d4ffe1;
+    font-weight: 700;
+    white-space: nowrap;
+}
+ 
     .consult-otp-section {
         margin-top: 10px;
         padding: 12px;
@@ -241,7 +295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         border-radius: 12px;
         background: rgba(255, 255, 255, .06);
     }
-
+ 
     .consult-otp-heading,
     .consult-otp-footer {
         display: flex;
@@ -250,33 +304,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         gap: 12px;
         font-size: 13px;
     }
-
+ 
     .consult-otp-heading {
         margin-bottom: 9px;
     }
-
+ 
     .consult-otp-footer {
         margin-top: 8px;
     }
-
+ 
     .consult-otp-timer {
         font-weight: 700;
         white-space: nowrap;
     }
-
+ 
     .consult-otp-row {
         display: flex;
         gap: 9px;
         width: 100%;
     }
-
+ 
     .consult-otp-row .consult-otp-input {
         flex: 1;
         min-width: 0;
         width: 100%;
         letter-spacing: 3px;
     }
-
+ 
     .consult-otp-button {
         flex: 0 0 auto;
         min-width: 105px;
@@ -288,12 +342,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         font-weight: 700;
         cursor: pointer;
     }
-
+ 
     .consult-otp-button:disabled {
         opacity: .55;
         cursor: not-allowed;
     }
-
+ 
     .consult-resend-link {
         padding: 0;
         border: 0;
@@ -305,37 +359,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         cursor: pointer;
         white-space: nowrap;
     }
-
+ 
     .consult-resend-link:disabled {
         opacity: .5;
         cursor: not-allowed;
     }
-
+ 
     #consult-submit:disabled {
         opacity: .55;
         cursor: not-allowed;
     }
-
+ 
     @media (max-width: 700px) {
         .consult-email-input-wrap .consult-email-input {
             padding-right: 105px !important;
         }
-
+ 
         .consult-verify-email-link,
         .consult-email-verified {
             right: 12px;
             font-size: 12px;
         }
-
+ 
         .consult-otp-row {
             flex-direction: column;
         }
-
+ 
         .consult-otp-button {
             min-height: 44px;
             width: 100%;
         }
-
+ 
         .consult-otp-heading,
         .consult-otp-footer {
             align-items: flex-start;
@@ -343,51 +397,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
     }
 </style>
-
+ 
 <script>
 (function () {
     const toastEl = document.getElementById('global-toast');
-
+ 
     function showToast(msg, type = 'error', ms = 3800) {
         if (!toastEl) {
             alert(msg);
             return;
         }
-
+ 
         toastEl.className =
             'global-toast ' +
             (type === 'success'
                 ? 'global-toast--success'
                 : 'global-toast--error');
-
+ 
         toastEl.textContent = msg;
         toastEl.classList.add('show');
-
+ 
         clearTimeout(showToast._t);
         showToast._t = setTimeout(
             () => toastEl.classList.remove('show'),
             ms
         );
     }
-
+ 
     document.querySelectorAll('.consult-alert').forEach(el => {
         const type =
             el.classList.contains('success')
                 ? 'success'
                 : 'error';
-
+ 
         showToast(
             el.textContent.trim(),
             type
         );
-
+ 
         el.remove();
     });
-
+ 
     window.cmmsToast = showToast;
 })();
 </script>
-
+ 
 <!-- =========================================================
      EMAIL OTP VERIFICATION
 ========================================================== -->
@@ -397,7 +451,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const emailInput = document.getElementById('cf_email');
     const verifyEmailBtn = document.getElementById('cf_verify_email');
     const verifiedBadge = document.getElementById('cf_email_verified');
-    const otpSection = document.getElementById('cf_otp_section');
+    const otpActions =document.getElementById('cf_otp_actions');
     const otpInput = document.getElementById('cf_otp');
     const verifyOtpBtn = document.getElementById('cf_verify_otp');
     const resendOtpBtn = document.getElementById('cf_resend_otp');
@@ -405,13 +459,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const otpMessage = document.getElementById('cf_otp_message');
     const verificationToken = document.getElementById('cf_email_verification_token');
     const submitBtn = document.getElementById('consult-submit');
-
+ 
     if (
         !form ||
         !emailInput ||
         !verifyEmailBtn ||
         !verifiedBadge ||
-        !otpSection ||
+       !otpActions ||
         !otpInput ||
         !verifyOtpBtn ||
         !resendOtpBtn ||
@@ -422,106 +476,106 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ) {
         return;
     }
-
+ 
     const SEND_OTP_URL = "{% url 'cmmsApp:send_email_otp' %}";
     const VERIFY_OTP_URL = "{% url 'cmmsApp:verify_email_otp' %}";
-
+ 
     const OTP_EXPIRY_SECONDS = 180;
     const RESEND_SECONDS = 60;
-
+ 
     let emailVerified = false;
     let emailUsedForOtp = '';
     let expiryInterval = null;
     let resendInterval = null;
     let remainingSeconds = 0;
     let resendRemaining = 0;
-
+ 
     function csrfToken() {
         const token =
             form.querySelector(
                 'input[name="csrfmiddlewaretoken"]'
             );
-
+ 
         return token ? token.value : '';
     }
-
+ 
     function validEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
-
+ 
     function formatTime(seconds) {
         const minutes =
             Math.floor(seconds / 60);
-
+ 
         const secs =
             seconds % 60;
-
+ 
         return (
             String(minutes).padStart(2, '0') +
             ':' +
             String(secs).padStart(2, '0')
         );
     }
-
+ 
     function stopExpiryTimer() {
         if (expiryInterval) {
             clearInterval(expiryInterval);
             expiryInterval = null;
         }
     }
-
+ 
     function stopResendTimer() {
         if (resendInterval) {
             clearInterval(resendInterval);
             resendInterval = null;
         }
     }
-
+ 
     function startResendTimer() {
         stopResendTimer();
-
+ 
         resendRemaining = RESEND_SECONDS;
         resendOtpBtn.style.display = 'inline-block';
         resendOtpBtn.disabled = true;
         resendOtpBtn.textContent =
             `Resend OTP (${resendRemaining}s)`;
-
+ 
         resendInterval = setInterval(
             function () {
                 resendRemaining -= 1;
-
+ 
                 if (resendRemaining <= 0) {
                     stopResendTimer();
                     resendOtpBtn.disabled = false;
                     resendOtpBtn.textContent = 'Resend OTP';
                     return;
                 }
-
+ 
                 resendOtpBtn.textContent =
                     `Resend OTP (${resendRemaining}s)`;
             },
             1000
         );
     }
-
+ 
     function startExpiryTimer(expiresIn) {
         stopExpiryTimer();
-
+ 
         remainingSeconds =
             Number(expiresIn) || OTP_EXPIRY_SECONDS;
-
+ 
         otpTimer.textContent =
             formatTime(remainingSeconds);
-
+ 
         otpMessage.textContent =
             'OTP sent. Please check your email.';
-
+ 
         verifyOtpBtn.disabled = false;
-
+ 
         expiryInterval = setInterval(
             function () {
                 remainingSeconds -= 1;
-
+ 
                 otpTimer.textContent =
                     formatTime(
                         Math.max(
@@ -529,15 +583,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             0
                         )
                     );
-
+ 
                 if (remainingSeconds <= 0) {
                     stopExpiryTimer();
-
+ 
                     verifyOtpBtn.disabled = true;
-
+ 
                     otpMessage.textContent =
                         'OTP expired. Please request a new OTP.';
-
+ 
                     window.cmmsToast(
                         'OTP expired. Please request a new OTP.',
                         'error'
@@ -547,11 +601,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             1000
         );
     }
-
+ 
     function updateVerifyLink() {
         const email =
             emailInput.value.trim();
-
+ 
         if (
             !emailVerified &&
             validEmail(email) &&
@@ -562,74 +616,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             verifyEmailBtn.style.display = 'none';
         }
     }
-
-    function resetVerification() {
-        emailVerified = false;
-        emailUsedForOtp = '';
-
-        verificationToken.value = '';
-        submitBtn.disabled = true;
-
-        verifiedBadge.style.display = 'none';
-        otpSection.style.display = 'none';
-
-        otpInput.value = '';
-
-        emailInput.readOnly = false;
-
-        stopExpiryTimer();
-        stopResendTimer();
-
-        resendOtpBtn.style.display = 'none';
-        resendOtpBtn.disabled = false;
-        resendOtpBtn.textContent = 'Resend OTP';
-
-        updateVerifyLink();
-    }
-
+ 
+  function resetVerification() {
+ 
+    emailVerified = false;
+    emailUsedForOtp = '';
+ 
+    verificationToken.value = '';
+    submitBtn.disabled = true;
+ 
+    verifiedBadge.style.display = 'none';
+ 
+    otpInput.value = '';
+    otpInput.style.display = 'none';
+ 
+    otpActions.style.display = 'none';
+ 
+    emailInput.style.display = 'block';
+    emailInput.readOnly = false;
+ 
+    stopExpiryTimer();
+    stopResendTimer();
+ 
+    resendOtpBtn.style.display = 'none';
+    resendOtpBtn.disabled = false;
+    resendOtpBtn.textContent = 'Resend';
+ 
+    updateVerifyLink();
+}
+ 
     async function sendOtp() {
         const email =
             emailInput.value
                 .trim()
                 .toLowerCase();
-
+ 
         if (!email) {
             window.cmmsToast(
                 'Please enter your email address.',
                 'error'
             );
-
+ 
             emailInput.focus();
             return;
         }
-
+ 
         if (!validEmail(email)) {
             window.cmmsToast(
                 'Please enter a valid email address.',
                 'error'
             );
-
+ 
             emailInput.focus();
             return;
         }
-
+ 
         verifyEmailBtn.disabled = true;
         resendOtpBtn.disabled = true;
-
+ 
         const originalText =
             verifyEmailBtn.textContent;
-
+ 
         verifyEmailBtn.textContent =
             'Sending...';
-
+ 
         const body =
             new FormData();
-
+ 
         body.append(
             'email',
             email
         );
-
+ 
         try {
             const response =
                 await fetch(
@@ -643,9 +701,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         body: body
                     }
                 );
-
+ 
             let data;
-
+ 
             try {
                 data =
                     await response.json();
@@ -654,36 +712,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     'Invalid response from server.'
                 );
             }
-
+ 
             if (!response.ok || !data.ok) {
                 throw new Error(
                     data.message ||
                     'Unable to send OTP.'
                 );
             }
-
+ 
             emailUsedForOtp = email;
-
-            verifyEmailBtn.style.display = 'none';
-            otpSection.style.display = 'block';
-
-            otpInput.value = '';
-            otpInput.focus();
-
-            startExpiryTimer(
-                data.expires_in ||
-                OTP_EXPIRY_SECONDS
-            );
-
-            startResendTimer();
-
+ 
+/* Hide email field */
+emailInput.style.display = 'none';
+ 
+verifyEmailBtn.style.display = 'none';
+ 
+/* Show OTP in exact same location */
+otpInput.style.display = 'block';
+ 
+otpActions.style.display = 'flex';
+ 
+otpInput.value = '';
+otpInput.focus();
+ 
+startExpiryTimer(
+    data.expires_in || OTP_EXPIRY_SECONDS
+);
+ 
+startResendTimer();
+           
+ 
             window.cmmsToast(
                 'OTP sent successfully. Please check your email.',
                 'success'
             );
         } catch (error) {
             updateVerifyLink();
-
+ 
             window.cmmsToast(
                 error.message ||
                 'Unable to send OTP.',
@@ -691,73 +756,73 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             );
         } finally {
             verifyEmailBtn.disabled = false;
-
+ 
             verifyEmailBtn.textContent =
                 originalText || 'Verify email';
-
+ 
             if (!resendInterval) {
                 resendOtpBtn.disabled = false;
             }
         }
     }
-
+ 
     async function verifyOtp() {
         const email =
             emailInput.value
                 .trim()
                 .toLowerCase();
-
+ 
         const otp =
             otpInput.value.trim();
-
+ 
         if (
             email !== emailUsedForOtp
         ) {
             resetVerification();
-
+ 
             window.cmmsToast(
                 'Email address changed. Please request a new OTP.',
                 'error'
             );
-
+ 
             return;
         }
-
+ 
         if (remainingSeconds <= 0) {
             window.cmmsToast(
                 'OTP expired. Please request a new OTP.',
                 'error'
             );
-
+ 
             return;
         }
-
+ 
         if (!/^\d{6}$/.test(otp)) {
             window.cmmsToast(
                 'Please enter the 6-digit OTP.',
                 'error'
             );
-
+ 
             otpInput.focus();
             return;
         }
-
+ 
         verifyOtpBtn.disabled = true;
         verifyOtpBtn.textContent = 'Verifying...';
-
+ 
         const body =
             new FormData();
-
+ 
         body.append(
             'email',
             email
         );
-
+ 
         body.append(
             'otp',
             otp
         );
-
+ 
         try {
             const response =
                 await fetch(
@@ -771,9 +836,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         body: body
                     }
                 );
-
+ 
             let data;
-
+ 
             try {
                 data =
                     await response.json();
@@ -782,7 +847,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     'Invalid response from server.'
                 );
             }
-
+ 
             if (
                 !response.ok ||
                 !data.ok ||
@@ -794,36 +859,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     'OTP verification failed.'
                 );
             }
-
-            emailVerified = true;
-
-            verificationToken.value =
-                data.verification_token;
-
-            stopExpiryTimer();
-            stopResendTimer();
-
-            otpSection.style.display = 'none';
-            verifyEmailBtn.style.display = 'none';
-
-            verifiedBadge.style.display = 'inline-block';
-
-            emailInput.readOnly = true;
-
-            submitBtn.disabled = false;
-
-            window.cmmsToast(
-                'Email verified successfully.',
-                'success',
-                5000
-            );
+ 
+           emailVerified = true;
+ 
+verificationToken.value =
+    data.verification_token;
+ 
+stopExpiryTimer();
+stopResendTimer();
+ 
+/* Hide OTP */
+otpInput.style.display = 'none';
+otpActions.style.display = 'none';
+ 
+/* Bring email back */
+emailInput.style.display = 'block';
+emailInput.readOnly = true;
+ 
+verifyEmailBtn.style.display = 'none';
+ 
+verifiedBadge.style.display = 'inline-block';
+ 
+submitBtn.disabled = false;
+ 
+window.cmmsToast(
+    'Email verified successfully.',
+    'success',
+    5000
+);
         } catch (error) {
             window.cmmsToast(
                 error.message ||
                 'OTP verification failed.',
                 'error'
             );
-
+ 
             otpInput.focus();
             otpInput.select();
         } finally {
@@ -833,11 +903,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ) {
                 verifyOtpBtn.disabled = false;
             }
-
+ 
             verifyOtpBtn.textContent = 'Verify OTP';
         }
     }
-
+ 
     emailInput.addEventListener(
         'input',
         function () {
@@ -847,21 +917,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             ) {
                 resetVerification();
             }
-
+ 
             updateVerifyLink();
         }
     );
-
+ 
     emailInput.addEventListener(
         'blur',
         updateVerifyLink
     );
-
+ 
     verifyEmailBtn.addEventListener(
         'click',
         sendOtp
     );
-
+ 
     resendOtpBtn.addEventListener(
         'click',
         function () {
@@ -873,7 +943,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
     );
-
+ 
     otpInput.addEventListener(
         'input',
         function () {
@@ -883,7 +953,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     .slice(0, 6);
         }
     );
-
+ 
     otpInput.addEventListener(
         'keydown',
         function (event) {
@@ -893,12 +963,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         }
     );
-
+ 
     verifyOtpBtn.addEventListener(
         'click',
         verifyOtp
     );
-
+ 
     form.addEventListener(
         'submit',
         function (event) {
@@ -907,28 +977,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 !verificationToken.value
             ) {
                 event.preventDefault();
-
+ 
                 window.cmmsToast(
                     'Please verify your email address before sending the message.',
                     'error'
                 );
-
+ 
                 emailInput.focus();
             }
         }
     );
-
+ 
     submitBtn.disabled = true;
     updateVerifyLink();
 })();
 </script>
-
-
+ 
+ 
 <script>
     (function () {
         const phone = document.getElementById('cf_phone');
         const country = document.getElementById('cf_country');
-
+ 
         // Populate the country list if it has only the placeholder option
         async function ensureCountries() {
             if (!country || country.options.length > 1) return;
@@ -945,7 +1015,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             } catch (e) { }
         }
-
+ 
         // When country changes, prefill (or update) dial code
         function onCountryChange() {
             const opt = country.options[country.selectedIndex];
@@ -960,7 +1030,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 phone.value = `${dial}${rest ? ' ' + rest : ' '}`;
             }
         }
-
+ 
         // When phone has +code, look up the country and select it
         async function syncFromPhone() {
             if (!phone || !phone.value.trim()) return;
@@ -977,12 +1047,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 if (d.e164) phone.value = d.e164; // normalized
             } catch (e) { }
         }
-
+ 
         // If user types country name (fallback) – now we always use the select, so skip
-
+ 
         country && country.addEventListener('change', onCountryChange);
         phone && phone.addEventListener('blur', syncFromPhone);
-
+ 
         ensureCountries();
     })();
 </script>
@@ -991,25 +1061,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const form = document.getElementById('consult-form');
     const submit = document.getElementById('consult-submit');
     const verificationToken = document.getElementById('cf_email_verification_token');
-
+ 
     if (!form || !submit) return;
-
+ 
     form.addEventListener('submit', function(e){
         if (!verificationToken || !verificationToken.value) {
             e.preventDefault();
             return;
         }
-
+ 
         if (typeof validate === 'function' && !validate()) {
             e.preventDefault();
             return;
         }
-
+ 
         submit.classList.add('is-loading');
         submit.disabled = true;
         form.classList.add('is-submitting');
     });
-
+ 
     window.getCsrfToken = () =>
         (document.querySelector('input[name=csrfmiddlewaretoken]') || {}).value || '';
 })();
