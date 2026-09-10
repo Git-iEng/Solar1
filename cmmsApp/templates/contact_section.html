@@ -5,293 +5,878 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>NEPLAN-Software</title>
-    <!--=============== CSS ===============-->
+
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-     <link rel="stylesheet" href="{% static 'css/neplan-contact.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/neplan-contact.css' %}">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link rel="icon" href="{% static 'images/logo1.png' %}">
 
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TKQV8LKX');</script>
-<!-- End Google Tag Manager -->
- 
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' +
+                i +
+                dl;
+
+            f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-TKQV8LKX');
+    </script>
+    <!-- End Google Tag Manager -->
 
 </head>
 
 <body>
-     
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKQV8LKX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-TKQV8LKX"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden">
+        </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
     {% include 'header.html' %}
 
-    {% load static %}
-    <section class="cmms-contact-form-section" style="background-image: url('../static/images/banner/contact.png');">
+
+    <!-- =========================================================
+         CONTACT BANNER
+    ========================================================== -->
+
+    <section
+        class="cmms-contact-form-section"
+        style="background-image: url('../static/images/banner/contact.png');"
+    >
+
         <div class="cmms-contact-form-overlay"></div>
+
         <div class="cmms-contact-form-container">
-            <a href="#contact" style="color: white;"><span class="cmms-contact-form-badge">
-                    <span class="cmms-contact-form-dot"></span> Contact us
+
+            <a
+                href="#contact"
+                style="color:white;"
+            >
+                <span class="cmms-contact-form-badge">
+                    <span class="cmms-contact-form-dot"></span>
+                    Contact us
                 </span>
             </a>
-            <h1 class="cmms-contact-form-title">Get in touch</h1>
+
+            <h1 class="cmms-contact-form-title">
+                Get in touch
+            </h1>
 
         </div>
+
     </section>
 
+
+    <!-- =========================================================
+         CONTACT FORM
+    ========================================================== -->
+
     <section class="cmms-contact-form-wrap">
+
         <div class="cmms-contact-form-inner">
 
-            <a href="#contact" class="cmms-contact-form-badge2">
-                <span class="cmms-contact-form-dot2"></span> Contact us
+            <a
+                href="#contact"
+                class="cmms-contact-form-badge2"
+            >
+                <span class="cmms-contact-form-dot2"></span>
+                Contact us
             </a>
 
+
             <h2 class="cmms-contact-form-heading2">
-                Say hello – we’re always just <br /> a click away!
+                Say hello – we’re always just
+                <br>
+                a click away!
             </h2>
 
+
             {% if sent %}
-            <div class="cmms-contact-form-success2">Thanks! We’ll be in touch shortly.</div>
+            <div class="cmms-contact-form-success2">
+                Thanks! We’ll be in touch shortly.
+            </div>
             {% endif %}
-            <form action="{% url 'cmmsApp:contact_section' %}" method="post" novalidate class="cmms-contact-form-form2"
-                id="contact">
+
+
+            <form
+                action="{% url 'cmmsApp:contact_section' %}"
+                method="post"
+                novalidate
+                class="cmms-contact-form-form2"
+                id="contact"
+            >
+
                 {% csrf_token %}
+
+
+                <!-- =================================================
+                     NAME
+                ================================================== -->
+
                 <div class="cmms-contact-form-grid2">
+
                     <div class="cmms-contact-form-field2">
+
                         {% if form.first_name.errors %}
-                        <div class="cmms-contact-form-error" style="color: red;">
+                        <div
+                            class="cmms-contact-form-error"
+                            style="color:red;"
+                        >
                             {% for error in form.first_name.errors %}
                             <p>{{ error }}</p>
                             {% endfor %}
                         </div>
                         {% endif %}
-                        <label class="cmms-contact-form-label2" for="id_first_name">Your name *</label>
-                        <input type="text" name="{{ form.first_name.name }}"
-                            value="{{ form.first_name.value|default_if_none:'' }}" class="cmms-contact-form-input2"
-                            id="id_first_name" required />
+
+                        <label
+                            class="cmms-contact-form-label2"
+                            for="id_first_name"
+                        >
+                            Your name *
+                        </label>
+
+                        <input
+                            type="text"
+                            name="{{ form.first_name.name }}"
+                            value="{{ form.first_name.value|default_if_none:'' }}"
+                            class="cmms-contact-form-input2"
+                            id="id_first_name"
+                            required
+                        >
+
                     </div>
 
+
                     <div class="cmms-contact-form-field2">
+
                         {{ form.last_name.errors }}
-                        <label class="cmms-contact-form-label2">Last name</label>
-                        <input type="text" name="{{ form.last_name.name }}"
-                            value="{{ form.last_name.value|default_if_none:'' }}" class="cmms-contact-form-input2" />
+
+                        <label class="cmms-contact-form-label2">
+                            Last name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="{{ form.last_name.name }}"
+                            value="{{ form.last_name.value|default_if_none:'' }}"
+                            class="cmms-contact-form-input2"
+                        >
+
                     </div>
+
                 </div>
 
+
+                <!-- =================================================
+                     COMPANY + COUNTRY
+                ================================================== -->
+
                 <div class="cmms-contact-form-grid2">
-                    <div class="cmms-contact-form-field2">
-                        {{ form.company.errors }}
-                        <label class="cmms-contact-form-label2">Company name</label>
-                        <input type="text" name="{{ form.company.name }}"
-                            value="{{ form.company.value|default_if_none:'' }}" class="cmms-contact-form-input2" />
-                    </div>
 
                     <div class="cmms-contact-form-field2">
-                        <label class="cmms-contact-form-label2" for="id_country">Country *</label>
-                        <select name="{{ form.country.name }}" class="cmms-contact-form-input2" id="id_country">
+
+                        {{ form.company.errors }}
+
+                        <label class="cmms-contact-form-label2">
+                            Company name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="{{ form.company.name }}"
+                            value="{{ form.company.value|default_if_none:'' }}"
+                            class="cmms-contact-form-input2"
+                        >
+
+                    </div>
+
+
+                    <div class="cmms-contact-form-field2">
+
+                        <label
+                            class="cmms-contact-form-label2"
+                            for="id_country"
+                        >
+                            Country *
+                        </label>
+
+                        <select
+                            name="{{ form.country.name }}"
+                            class="cmms-contact-form-input2"
+                            id="id_country"
+                        >
+
                             {% for val, label in form.country.field.choices %}
-                            {% if form.country.value|stringformat:"s" == val|stringformat:"s" %}
-                            <option value="{{ val }}" selected>{{ label }}</option>
-                            {% else %}
-                            <option value="{{ val }}">{{ label }}</option>
-                            {% endif %}
+
+                                {% if form.country.value|stringformat:"s" == val|stringformat:"s" %}
+
+                                <option
+                                    value="{{ val }}"
+                                    selected
+                                >
+                                    {{ label }}
+                                </option>
+
+                                {% else %}
+
+                                <option value="{{ val }}">
+                                    {{ label }}
+                                </option>
+
+                                {% endif %}
+
                             {% endfor %}
+
                         </select>
+
+
                         {% if form.country.errors %}
-                        <div class="cmms-contact-form-error" style="color: red;">
+
+                        <div
+                            class="cmms-contact-form-error"
+                            style="color:red;"
+                        >
+
                             {% for error in form.country.errors %}
                             <p>{{ error }}</p>
                             {% endfor %}
+
                         </div>
+
                         {% endif %}
+
                     </div>
+
                 </div>
 
+
+                <!-- =================================================
+                     EMAIL + OTP VERIFICATION
+                ================================================== -->
+
                 <div class="cmms-contact-form-field2">
+
                     {% if form.email.errors %}
-                    <div class="cmms-contact-form-error" style="color: red;">
+
+                    <div
+                        class="cmms-contact-form-error"
+                        style="color:red;"
+                    >
+
                         {% for error in form.email.errors %}
                         <p>{{ error }}</p>
                         {% endfor %}
+
                     </div>
+
                     {% endif %}
-                    <label class="cmms-contact-form-label2" for="id_email">Email address *</label>
-                    <input type="email" name="{{ form.email.name }}" value="{{ form.email.value|default_if_none:'' }}"
-                        class="cmms-contact-form-input2" id="id_email" required />
+
+
+                    <label
+                        class="cmms-contact-form-label2"
+                        for="id_email"
+                    >
+                        Email address *
+                    </label>
+
+
+                    <!-- EMAIL FIELD -->
+
+                    <div class="email-verification-container">
+
+                        <input
+                            type="email"
+                            name="{{ form.email.name }}"
+                            value="{{ form.email.value|default_if_none:'' }}"
+                            class="cmms-contact-form-input2 email-main-input"
+                            id="id_email"
+                            autocomplete="email"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            id="verifyEmailLink"
+                            class="verify-email-link"
+                            style="display:none;"
+                        >
+                            Verify email
+                        </button>
+
+
+                        <span
+                            id="emailVerifiedIcon"
+                            class="email-verified-icon"
+                            style="display:none;"
+                        >
+                            ✓ Verified
+                        </span>
+
+                    </div>
+
+
+                    <!-- OTP SECTION -->
+
+                    <div
+                        id="otpSection"
+                        class="otp-inline-section"
+                        style="display:none;"
+                    >
+
+                        <div class="otp-title-row">
+
+                            <span>
+                                Enter the verification code sent to your email
+                            </span>
+
+                            <span
+                                id="otpExpiryTimer"
+                                class="otp-expiry-timer"
+                            >
+                                03:00
+                            </span>
+
+                        </div>
+
+
+                        <div class="otp-input-row">
+
+                            <input
+                                type="text"
+                                id="emailOtp"
+                                maxlength="6"
+                                inputmode="numeric"
+                                autocomplete="one-time-code"
+                                placeholder="Enter 6-digit OTP"
+                                class="cmms-contact-form-input2 otp-input"
+                            >
+
+
+                            <button
+                                type="button"
+                                id="verifyOtpBtn"
+                                class="otp-action-btn"
+                            >
+                                Verify OTP
+                            </button>
+
+                        </div>
+
+
+                        <div class="otp-bottom-row">
+
+                            <span id="otpMessage">
+                                OTP expires in 3 minutes.
+                            </span>
+
+
+                            <button
+                                type="button"
+                                id="resendOtpBtn"
+                                class="otp-resend-link"
+                            >
+                                Resend OTP
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <input
+                        type="hidden"
+                        name="email_verification_token"
+                        id="emailVerificationToken"
+                        value=""
+                    >
+
                 </div>
 
+
+                <!-- =================================================
+                     PHONE
+                ================================================== -->
+
                 <div class="cmms-contact-form-field2">
+
                     {{ form.phone.errors }}
-                    <label class="cmms-contact-form-label2">Phone (include country code, e.g. +61 4…)</label>
-                    <input type="text" name="{{ form.phone.name }}" value="{{ form.phone.value|default_if_none:'' }}"
-                        class="cmms-contact-form-input2" />
+
+                    <label class="cmms-contact-form-label2">
+                        Phone (include country code, e.g. +61 4…)
+                    </label>
+
+                    <input
+                        type="text"
+                        name="{{ form.phone.name }}"
+                        value="{{ form.phone.value|default_if_none:'' }}"
+                        class="cmms-contact-form-input2"
+                    >
+
                 </div>
+
+
+                <!-- =================================================
+                     MESSAGE
+                ================================================== -->
 
                 <div class="cmms-contact-form-field2">
+
                     {{ form.message.errors }}
-                    <label class="cmms-contact-form-label2">Enter your message</label>
-                    <textarea name="{{ form.message.name }}" rows="6" class="cmms-contact-form-textarea2"></textarea>
+
+                    <label class="cmms-contact-form-label2">
+                        Enter your message
+                    </label>
+
+                    <textarea
+                        name="{{ form.message.name }}"
+                        rows="6"
+                        class="cmms-contact-form-textarea2"
+                    ></textarea>
+
                 </div>
 
-                <!-- was: <button type="submit" class="cmms-contact-form-submit2">Submit</button> -->
-                <button type="submit" id="contactSubmit" class="cmms-contact-form-submit2">Submit</button>
+
+                <!-- =================================================
+                     SUBMIT
+                ================================================== -->
+
+                <button
+                    type="submit"
+                    id="contactSubmit"
+                    class="cmms-contact-form-submit2"
+                    disabled
+                >
+                    Submit
+                </button>
 
             </form>
 
 
-            <!-- Loading Spinner -->
-            <div id="loadingSpinner" style="display:none;">Submitting...</div>
-            <!-- 
-            <script>
-                // Submit the form via AJAX
-                document.getElementById("contactForm").addEventListener("submit", function (event) {
-                    event.preventDefault();  // Prevents the page from refreshing
+            <div
+                id="loadingSpinner"
+                style="display:none;"
+            >
+                Submitting...
+            </div>
 
-                    // Show loading spinner
-                    document.getElementById("loadingSpinner").style.display = "block";
-
-                    // Prepare the data to be sent
-                    const formData = new FormData(this);
-
-                    // Send the AJAX request
-                    fetch("{% url 'cmmsApp:contact_section' %}", {
-                        method: "POST",
-                        body: formData,
-                    })
-                        .then(response => response.json())
-                        .then(data => {
-                            // Hide loading spinner
-                            document.getElementById("loadingSpinner").style.display = "none";
-
-                            // Reset the form
-                            document.getElementById("contactForm").reset();
-
-                            // Optionally, show a message or redirect
-                            alert("Your message has been submitted!");
-
-                            // Reload the page (optional)
-                            window.location.reload();
-                        })
-                        .catch(error => {
-                            // Handle errors
-                            console.error("Error submitting form:", error);
-                            document.getElementById("loadingSpinner").style.display = "none";
-                            alert("Something went wrong. Please try again.");
-                        });
-                });
-            </script> -->
-            <script>
-                (function () {
-                    const form = document.getElementById('contact');
-                    const btn = document.getElementById('contactSubmit');
-                    if (form && btn) {
-                        form.addEventListener('submit', function () {
-                            btn.classList.add('cmms-contact-form-btnloading');
-                            btn.disabled = true;
-                        });
-                    }
-                })();
-            </script>
         </div>
 
     </section>
 
+
+    <!-- =========================================================
+         LOCATIONS
+    ========================================================== -->
 
     <section class="cmms-contact-form-loc-wrap">
 
         <div class="cmms-contact-form-loc-grid">
 
-            <!-- Australia – Sydney -->
-            <article class="cmms-contact-form-loc-card cmms-contact-form-loc-card--au">
+
+            <!-- Australia -->
+
+            <article
+                class="
+                    cmms-contact-form-loc-card
+                    cmms-contact-form-loc-card--au
+                "
+            >
+
                 <header class="cmms-contact-form-loc-header">
+
                     <span class="cmms-contact-form-loc-icon">
-                        <!-- location pin -->
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
                             <path
-                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                            >
+                            </path>
                         </svg>
+
                     </span>
-                    <h3 class="cmms-contact-form-loc-title">Australia – Sydney</h3>
+
+                    <h3 class="cmms-contact-form-loc-title">
+                        Australia – Sydney
+                    </h3>
+
                 </header>
 
-                <p class="cmms-contact-form-loc-phone"><strong>Phone:</strong> +61 (02) 8318 1490</p>
-                <p class="cmms-contact-form-loc-email"><strong>Email: </strong><a
-                        href="mailto:dnaiker@iengaust.com.au">dnaiker@iengaust.com.au </a></p>
-                <p class="cmms-contact-form-loc-address">
-                    Warawara Cct, Quakers Hill NSW 2763, Australia
+
+                <p class="cmms-contact-form-loc-phone">
+                    <strong>Phone:</strong>
+                    +61 (02) 8318 1490
                 </p>
 
-                <a class="cmms-contact-form-loc-map" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps?ll=-33.723524,150.875902&z=5&t=m&hl=en-US&gl=US&mapclient=embed&cid=2860432314088839065">
+
+                <p class="cmms-contact-form-loc-email">
+
+                    <strong>Email:</strong>
+
+                    <a href="mailto:dnaiker@iengaust.com.au">
+                        dnaiker@iengaust.com.au
+                    </a>
+
+                </p>
+
+
+                <p class="cmms-contact-form-loc-address">
+                    Warawara Cct,
+                    Quakers Hill NSW 2763,
+                    Australia
+                </p>
+
+
+                <a
+                    class="cmms-contact-form-loc-map"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://www.google.com/maps?ll=-33.723524,150.875902&z=5&t=m&hl=en-US&gl=US&mapclient=embed&cid=2860432314088839065"
+                >
                     View map
                 </a>
+
             </article>
 
-            <!-- India – Pune -->
-            <article class="cmms-contact-form-loc-card cmms-contact-form-loc-card--in">
+
+            <!-- India -->
+
+            <article
+                class="
+                    cmms-contact-form-loc-card
+                    cmms-contact-form-loc-card--in
+                "
+            >
+
                 <header class="cmms-contact-form-loc-header">
+
                     <span class="cmms-contact-form-loc-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
                             <path
-                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                            >
+                            </path>
                         </svg>
+
                     </span>
-                    <h3 class="cmms-contact-form-loc-title">India – Pune</h3>
+
+
+                    <h3 class="cmms-contact-form-loc-title">
+                        India – Pune
+                    </h3>
+
                 </header>
 
-                <p class="cmms-contact-form-loc-phone"><strong>Phone: </strong>+91 9168627258</p>
-                <p class="cmms-contact-form-loc-email"><strong>Email: </strong><a
-                        href="mailto:shila@iengaust.com.au">shila@iengaust.com.au</a></p>
-                <p class="cmms-contact-form-loc-address">
-                    Navale IT Zone, Office No. 501, 5th Floor, A-Wing, Near Navale Bridge, Mumbai-Bangalore Highway,
-                    Narhe, Pune – 411041.
+
+                <p class="cmms-contact-form-loc-phone">
+                    <strong>Phone:</strong>
+                    +91 9168627258
                 </p>
 
-                <a class="cmms-contact-form-loc-map" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/place/Navale+IT+Zone+Phase2/@18.4597518,73.8199254,17z/data=!4m10!1m2!2m1!1sNavale+IT+Zone,+Office+No.+501,+5th+Floor,+A-Wing,+Near+Navale+Bridge,+Mumbai-Bangalore+Highway,+Narhe,+Pune+-+411041.!3m6!1s0x3bc29581263a8289:0x46a3bd2b894b95d7!8m2!3d18.4597518!4d73.8225003!15sCnZOYXZhbGUgSVQgWm9uZSwgT2ZmaWNlIE5vLiA1MDEsIDV0aCBGbG9vciwgQS1XaW5nLCBOZWFyIE5hdmFsZSBCcmlkZ2UsIE11bWJhaS1CYW5nYWxvcmUgSGlnaHdheSwgTmFyaGUsIFB1bmUgLSA0MTEwNDEukgEQY29ycG9yYXRlX29mZmljZeABAA!16s%2Fg%2F11g2xn_jj5?hl=en-US&entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D">
+
+                <p class="cmms-contact-form-loc-email">
+
+                    <strong>Email:</strong>
+
+                    <a href="mailto:shila@iengaust.com.au">
+                        shila@iengaust.com.au
+                    </a>
+
+                </p>
+
+
+                <p class="cmms-contact-form-loc-address">
+
+                    Navale IT Zone,
+                    Office No. 501,
+                    5th Floor,
+                    A-Wing,
+                    Near Navale Bridge,
+                    Mumbai-Bangalore Highway,
+                    Narhe,
+                    Pune – 411041.
+
+                </p>
+
+
+                <a
+                    class="cmms-contact-form-loc-map"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://www.google.com/maps/place/Navale+IT+Zone+Phase2/@18.4597518,73.8199254,17z"
+                >
                     View map
                 </a>
+
             </article>
 
-            <!-- Fiji – Suva -->
-            <article class="cmms-contact-form-loc-card cmms-contact-form-loc-card--fj">
+
+            <!-- Fiji -->
+
+            <article
+                class="
+                    cmms-contact-form-loc-card
+                    cmms-contact-form-loc-card--fj
+                "
+            >
+
                 <header class="cmms-contact-form-loc-header">
+
                     <span class="cmms-contact-form-loc-icon">
-                        <!-- mail -->
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
                             <path
-                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
+                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                            >
+                            </path>
                         </svg>
+
                     </span>
-                    <h3 class="cmms-contact-form-loc-title">Fiji – Suva</h3>
+
+
+                    <h3 class="cmms-contact-form-loc-title">
+                        Fiji – Suva
+                    </h3>
+
                 </header>
 
-                <p class="cmms-contact-form-loc-phone"><strong>Phone: </strong>+679 9488589</p>
-                <p class="cmms-contact-form-loc-email"><strong>Email: </strong><a
-                        href="mailto:dnaiker@iengaust.com.au ">dnaiker@iengaust.com.au </a></p>
-                <p class="cmms-contact-form-loc-address">
-                    Lot 17, River Drive, Pacific Harbour, Navua, Suva, Fiji.
+
+                <p class="cmms-contact-form-loc-phone">
+                    <strong>Phone:</strong>
+                    +679 9488589
                 </p>
 
-                <a class="cmms-contact-form-loc-map" target="_blank" rel="noopener"
-                    href="https://www.google.com/maps/search/Lot+17,+River+Drive+Pacific+Harbour+Navua+Suva+Fiji/@-18.1642523,177.6272352,9z/data=!3m1!4b1?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D">
+
+                <p class="cmms-contact-form-loc-email">
+
+                    <strong>Email:</strong>
+
+                    <a href="mailto:dnaiker@iengaust.com.au">
+                        dnaiker@iengaust.com.au
+                    </a>
+
+                </p>
+
+
+                <p class="cmms-contact-form-loc-address">
+
+                    Lot 17,
+                    River Drive,
+                    Pacific Harbour,
+                    Navua,
+                    Suva,
+                    Fiji.
+
+                </p>
+
+
+                <a
+                    class="cmms-contact-form-loc-map"
+                    target="_blank"
+                    rel="noopener"
+                    href="https://www.google.com/maps/search/Lot+17,+River+Drive+Pacific+Harbour+Navua+Suva+Fiji"
+                >
                     View map
                 </a>
+
             </article>
 
         </div>
+
     </section>
 
+
+    <!-- =========================================================
+         EMAIL OTP STYLING
+    ========================================================== -->
+
     <style>
+
+        .email-verification-container {
+            position: relative;
+            width: 100%;
+        }
+
+
+        .email-main-input {
+            width: 100%;
+            padding-right: 135px !important;
+        }
+
+
+        .verify-email-link {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            text-decoration: underline;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            padding: 6px;
+        }
+
+
+        .verify-email-link:hover {
+            opacity: 0.8;
+        }
+
+
+        .verify-email-link:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+
+        .email-verified-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #caffd5;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+
+        .otp-inline-section {
+            margin-top: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+
+        .otp-title-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+
+        .otp-expiry-timer {
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+
+        .otp-input-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+
+
+        .otp-input {
+            flex: 1;
+            min-width: 0;
+            letter-spacing: 4px;
+        }
+
+
+        .otp-action-btn {
+            min-width: 120px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 18px;
+            background: #ffffff;
+            color: #0b555a;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+
+        .otp-action-btn:hover {
+            opacity: 0.9;
+        }
+
+
+        .otp-action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+
+        .otp-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+
+        .otp-resend-link {
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            text-decoration: underline;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+
+        .otp-resend-link:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+
+        #contactSubmit:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+
+        /* =====================================================
+           TOAST
+        ====================================================== */
+
         .toast-root {
             position: fixed;
             left: 50%;
@@ -300,68 +885,1080 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             z-index: 9999;
             display: flex;
             flex-direction: column;
-            gap: 10px
+            gap: 10px;
         }
+
 
         .toast {
-            min-width: 260px;
-            max-width: 360px;
-            padding: 12px 14px;
+            min-width: 280px;
+            max-width: 430px;
+            padding: 13px 16px;
             border-radius: 10px;
-            color: #fff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .15);
-            font: 600 14px/1.4 system-ui
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .18);
+            font: 600 14px/1.4 system-ui;
         }
+
 
         .toast--error {
-            background: #d72c2c
+            background: #801313;
         }
+
 
         .toast--success {
-            background: #0c8c73
+            background: #087e62;
         }
+
 
         .toast--info {
-            background: #0b2239
+            background: #0b2239;
         }
 
-        .toast__close {
-            background: transparent;
-            border: 0;
-            color: #fff;
-            font-size: 18px;
-            cursor: pointer;
-            margin-left: 8px
-        }
 
         .toast__row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 10px
+            gap: 15px;
         }
+
+
+        .toast__close {
+            border: none;
+            background: transparent;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        @media (max-width: 700px) {
+
+            .email-main-input {
+                padding-right: 110px !important;
+            }
+
+
+            .verify-email-link {
+                right: 10px;
+                font-size: 12px;
+            }
+
+
+            .email-verified-icon {
+                right: 10px;
+                font-size: 12px;
+            }
+
+
+            .otp-input-row {
+                flex-direction: column;
+            }
+
+
+            .otp-action-btn {
+                width: 100%;
+            }
+
+
+            .otp-title-row,
+            .otp-bottom-row {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+        }
+
     </style>
 
-    <div id="toast-root" class="toast-root" aria-live="polite"></div>
+
+    <!-- =========================================================
+         TOAST
+    ========================================================== -->
+
+    <div
+        id="toast-root"
+        class="toast-root"
+        aria-live="polite"
+    ></div>
+
+
     <script>
-        function showToast(msg, type = 'info', ms = 3500) {
-            const root = document.getElementById('toast-root');
-            const el = document.createElement('div');
-            el.className = 'toast toast--' + (type || 'info');
-            el.innerHTML = '<div class="toast__row"><span>' + msg + '</span><button class="toast__close" aria-label="Close">×</button></div>';
-            root.appendChild(el);
-            const t = setTimeout(() => el.remove(), ms);
-            el.querySelector('.toast__close').onclick = () => { clearTimeout(t); el.remove(); };
+
+        function showToast(
+            message,
+            type = "info",
+            milliseconds = 4000
+        ) {
+
+            const root =
+                document.getElementById("toast-root");
+
+
+            const toast =
+                document.createElement("div");
+
+
+            toast.className =
+                "toast toast--" + type;
+
+
+            toast.innerHTML = `
+                <div class="toast__row">
+
+                    <span>${message}</span>
+
+                    <button
+                        type="button"
+                        class="toast__close"
+                    >
+                        ×
+                    </button>
+
+                </div>
+            `;
+
+
+            root.appendChild(toast);
+
+
+            const timer =
+                setTimeout(
+                    function () {
+                        toast.remove();
+                    },
+                    milliseconds
+                );
+
+
+            toast
+                .querySelector(".toast__close")
+                .addEventListener(
+                    "click",
+                    function () {
+
+                        clearTimeout(timer);
+
+                        toast.remove();
+
+                    }
+                );
+
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            {% for m in messages %}
-            showToast({{ m.message | escapejs }}, '{{ m.tags|default:"info" }}');
-        {% endfor %}
-  });
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                {% for m in messages %}
+
+                showToast(
+                    "{{ m.message|escapejs }}",
+                    "{{ m.tags|default:'info' }}"
+                );
+
+                {% endfor %}
+
+            }
+        );
+
     </script>
 
-    {% include 'footer.html' %}
-    <script src="{% static 'js/main.js'%}"></script>
-</body>
 
+    <!-- =========================================================
+         REAL EMAIL OTP VERIFICATION
+    ========================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const OTP_EXPIRY_SECONDS = 180;
+
+
+                const SEND_OTP_URL =
+                    "/api/contact/send-email-otp/";
+
+
+                const VERIFY_OTP_URL =
+                    "/api/contact/verify-email-otp/";
+
+
+                const form =
+                    document.getElementById("contact");
+
+
+                const emailInput =
+                    document.getElementById("id_email");
+
+
+                const verifyEmailLink =
+                    document.getElementById("verifyEmailLink");
+
+
+                const otpSection =
+                    document.getElementById("otpSection");
+
+
+                const otpInput =
+                    document.getElementById("emailOtp");
+
+
+                const verifyOtpBtn =
+                    document.getElementById("verifyOtpBtn");
+
+
+                const resendOtpBtn =
+                    document.getElementById("resendOtpBtn");
+
+
+                const otpExpiryTimer =
+                    document.getElementById("otpExpiryTimer");
+
+
+                const otpMessage =
+                    document.getElementById("otpMessage");
+
+
+                const emailVerifiedIcon =
+                    document.getElementById("emailVerifiedIcon");
+
+
+                const verificationToken =
+                    document.getElementById(
+                        "emailVerificationToken"
+                    );
+
+
+                const submitBtn =
+                    document.getElementById(
+                        "contactSubmit"
+                    );
+
+
+                let emailVerified = false;
+
+                let emailUsedForOtp = "";
+
+                let expiryInterval = null;
+
+                let remainingSeconds =
+                    OTP_EXPIRY_SECONDS;
+
+
+
+                /* =================================================
+                   GET CSRF TOKEN
+                ================================================== */
+
+                function getCsrfToken() {
+
+                    const csrf =
+                        document.querySelector(
+                            'input[name="csrfmiddlewaretoken"]'
+                        );
+
+                    return csrf
+                        ? csrf.value
+                        : "";
+
+                }
+
+
+
+                /* =================================================
+                   VALIDATE EMAIL
+                ================================================== */
+
+                function isValidEmail(email) {
+
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                        .test(email);
+
+                }
+
+
+
+                /* =================================================
+                   FORMAT TIMER
+                ================================================== */
+
+                function formatTimer(seconds) {
+
+                    const minutes =
+                        Math.floor(seconds / 60);
+
+
+                    const secs =
+                        seconds % 60;
+
+
+                    return (
+                        String(minutes).padStart(2, "0")
+                        +
+                        ":"
+                        +
+                        String(secs).padStart(2, "0")
+                    );
+
+                }
+
+
+
+                /* =================================================
+                   STOP OTP TIMER
+                ================================================== */
+
+                function stopOtpTimer() {
+
+                    if (expiryInterval) {
+
+                        clearInterval(
+                            expiryInterval
+                        );
+
+                        expiryInterval = null;
+
+                    }
+
+                }
+
+
+
+                /* =================================================
+                   START 3 MINUTE OTP TIMER
+                ================================================== */
+
+                function startOtpTimer() {
+
+                    stopOtpTimer();
+
+
+                    remainingSeconds =
+                        OTP_EXPIRY_SECONDS;
+
+
+                    otpExpiryTimer.textContent =
+                        formatTimer(
+                            remainingSeconds
+                        );
+
+
+                    otpMessage.textContent =
+                        "OTP expires in 3 minutes.";
+
+
+                    verifyOtpBtn.disabled =
+                        false;
+
+
+                    expiryInterval =
+                        setInterval(
+                            function () {
+
+
+                                remainingSeconds--;
+
+
+                                otpExpiryTimer.textContent =
+                                    formatTimer(
+                                        Math.max(
+                                            remainingSeconds,
+                                            0
+                                        )
+                                    );
+
+
+                                if (
+                                    remainingSeconds <= 0
+                                ) {
+
+                                    stopOtpTimer();
+
+
+                                    verifyOtpBtn.disabled =
+                                        true;
+
+
+                                    otpMessage.textContent =
+                                        "OTP expired. Please resend a new OTP.";
+
+
+                                    showToast(
+                                        "OTP has expired. Please request a new OTP.",
+                                        "error"
+                                    );
+
+                                }
+
+                            },
+                            1000
+                        );
+
+                }
+
+
+
+                /* =================================================
+                   RESET VERIFICATION
+                ================================================== */
+
+                function resetVerification() {
+
+                    emailVerified =
+                        false;
+
+
+                    emailUsedForOtp =
+                        "";
+
+
+                    verificationToken.value =
+                        "";
+
+
+                    submitBtn.disabled =
+                        true;
+
+
+                    otpSection.style.display =
+                        "none";
+
+
+                    emailVerifiedIcon.style.display =
+                        "none";
+
+
+                    emailInput.readOnly =
+                        false;
+
+
+                    stopOtpTimer();
+
+
+                    otpInput.value =
+                        "";
+
+
+                    updateVerifyEmailLink();
+
+                }
+
+
+
+                /* =================================================
+                   SHOW VERIFY EMAIL LINK
+                ================================================== */
+
+                function updateVerifyEmailLink() {
+
+                    const email =
+                        emailInput.value.trim();
+
+
+                    if (
+                        !emailVerified
+                        &&
+                        isValidEmail(email)
+                    ) {
+
+                        verifyEmailLink.style.display =
+                            "inline-block";
+
+                    }
+                    else {
+
+                        verifyEmailLink.style.display =
+                            "none";
+
+                    }
+
+                }
+
+
+
+                /* =================================================
+                   EMAIL TYPING
+                ================================================== */
+
+                emailInput.addEventListener(
+                    "input",
+                    function () {
+
+
+                        if (
+                            emailVerified
+                            ||
+                            emailUsedForOtp
+                        ) {
+
+                            resetVerification();
+
+                        }
+
+
+                        updateVerifyEmailLink();
+
+                    }
+                );
+
+
+
+                emailInput.addEventListener(
+                    "blur",
+                    updateVerifyEmailLink
+                );
+
+
+
+                /* =================================================
+                   SEND OTP
+                ================================================== */
+
+                async function sendOtp() {
+
+                    const email =
+                        emailInput.value
+                            .trim()
+                            .toLowerCase();
+
+
+                    if (!email) {
+
+                        showToast(
+                            "Please enter your email address.",
+                            "error"
+                        );
+
+                        emailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !isValidEmail(email)
+                    ) {
+
+                        showToast(
+                            "Please enter a valid email address.",
+                            "error"
+                        );
+
+                        emailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    verifyEmailLink.disabled =
+                        true;
+
+
+                    resendOtpBtn.disabled =
+                        true;
+
+
+                    verifyEmailLink.textContent =
+                        "Sending...";
+
+
+                    const formData =
+                        new FormData();
+
+
+                    formData.append(
+                        "email",
+                        email
+                    );
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                SEND_OTP_URL,
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "X-CSRFToken":
+                                            getCsrfToken(),
+
+                                        "X-Requested-With":
+                                            "XMLHttpRequest"
+                                    },
+
+                                    body:
+                                        formData
+                                }
+                            );
+
+
+                        let data = {};
+
+
+                        try {
+
+                            data =
+                                await response.json();
+
+                        }
+                        catch (error) {
+
+                            throw new Error(
+                                "Invalid response from server."
+                            );
+
+                        }
+
+
+                        if (
+                            !response.ok
+                            ||
+                            !data.ok
+                        ) {
+
+                            throw new Error(
+                                data.message
+                                ||
+                                "Unable to send OTP."
+                            );
+
+                        }
+
+
+                        emailUsedForOtp =
+                            email;
+
+
+                        otpSection.style.display =
+                            "block";
+
+
+                        verifyEmailLink.style.display =
+                            "none";
+
+
+                        otpInput.value =
+                            "";
+
+
+                        verifyOtpBtn.disabled =
+                            false;
+
+
+                        otpMessage.textContent =
+                            "OTP sent successfully. Check your email.";
+
+
+                        startOtpTimer();
+
+
+                        otpInput.focus();
+
+
+                        showToast(
+                            "OTP sent successfully to your email address.",
+                            "success"
+                        );
+
+                    }
+                    catch (error) {
+
+                        showToast(
+                            error.message
+                            ||
+                            "Unable to send OTP.",
+                            "error"
+                        );
+
+                        updateVerifyEmailLink();
+
+                    }
+                    finally {
+
+                        verifyEmailLink.disabled =
+                            false;
+
+
+                        resendOtpBtn.disabled =
+                            false;
+
+
+                        verifyEmailLink.textContent =
+                            "Verify email";
+
+                    }
+
+                }
+
+
+
+                verifyEmailLink.addEventListener(
+                    "click",
+                    sendOtp
+                );
+
+
+
+                resendOtpBtn.addEventListener(
+                    "click",
+                    async function () {
+
+
+                        if (emailVerified) {
+                            return;
+                        }
+
+
+                        await sendOtp();
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   OTP NUMBERS ONLY
+                ================================================== */
+
+                otpInput.addEventListener(
+                    "input",
+                    function () {
+
+                        this.value =
+                            this.value
+                                .replace(
+                                    /\D/g,
+                                    ""
+                                )
+                                .slice(
+                                    0,
+                                    6
+                                );
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   VERIFY OTP
+                ================================================== */
+
+                async function verifyOtp() {
+
+                    const email =
+                        emailInput.value
+                            .trim()
+                            .toLowerCase();
+
+
+                    const otp =
+                        otpInput.value
+                            .trim();
+
+
+                    if (
+                        remainingSeconds <= 0
+                    ) {
+
+                        showToast(
+                            "OTP has expired. Please request a new OTP.",
+                            "error"
+                        );
+
+                        return;
+
+                    }
+
+
+                    if (
+                        email !==
+                        emailUsedForOtp
+                    ) {
+
+                        showToast(
+                            "Email address has changed. Please request a new OTP.",
+                            "error"
+                        );
+
+                        resetVerification();
+
+                        return;
+
+                    }
+
+
+                    if (
+                        !/^\d{6}$/.test(otp)
+                    ) {
+
+                        showToast(
+                            "Please enter the 6-digit OTP.",
+                            "error"
+                        );
+
+                        otpInput.focus();
+
+                        return;
+
+                    }
+
+
+                    verifyOtpBtn.disabled =
+                        true;
+
+
+                    verifyOtpBtn.textContent =
+                        "Verifying...";
+
+
+                    const formData =
+                        new FormData();
+
+
+                    formData.append(
+                        "email",
+                        email
+                    );
+
+
+                    formData.append(
+                        "otp",
+                        otp
+                    );
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                VERIFY_OTP_URL,
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "X-CSRFToken":
+                                            getCsrfToken(),
+
+                                        "X-Requested-With":
+                                            "XMLHttpRequest"
+                                    },
+
+                                    body:
+                                        formData
+                                }
+                            );
+
+
+                        let data = {};
+
+
+                        try {
+
+                            data =
+                                await response.json();
+
+                        }
+                        catch (error) {
+
+                            throw new Error(
+                                "Invalid response from server."
+                            );
+
+                        }
+
+
+                        if (
+                            !response.ok
+                            ||
+                            !data.ok
+                            ||
+                            !data.verified
+                        ) {
+
+                            throw new Error(
+                                data.message
+                                ||
+                                "Incorrect OTP."
+                            );
+
+                        }
+
+
+                        /* =============================================
+                           EMAIL VERIFIED
+                        ============================================== */
+
+                        emailVerified =
+                            true;
+
+
+                        verificationToken.value =
+                            data.verification_token
+                            ||
+                            "";
+
+
+                        stopOtpTimer();
+
+
+                        otpSection.style.display =
+                            "none";
+
+
+                        verifyEmailLink.style.display =
+                            "none";
+
+
+                        emailVerifiedIcon.style.display =
+                            "inline-block";
+
+
+                        emailInput.readOnly =
+                            true;
+
+
+                        submitBtn.disabled =
+                            false;
+
+
+                        showToast(
+                            "Email verified successfully.",
+                            "success",
+                            5000
+                        );
+
+                    }
+                    catch (error) {
+
+                        showToast(
+                            error.message
+                            ||
+                            "OTP verification failed.",
+                            "error"
+                        );
+
+                        otpInput.focus();
+
+                        otpInput.select();
+
+                    }
+                    finally {
+
+                        if (
+                            !emailVerified
+                            &&
+                            remainingSeconds > 0
+                        ) {
+
+                            verifyOtpBtn.disabled =
+                                false;
+
+                        }
+
+
+                        verifyOtpBtn.textContent =
+                            "Verify OTP";
+
+                    }
+
+                }
+
+
+
+                verifyOtpBtn.addEventListener(
+                    "click",
+                    verifyOtp
+                );
+
+
+
+                otpInput.addEventListener(
+                    "keydown",
+                    function (event) {
+
+                        if (
+                            event.key ===
+                            "Enter"
+                        ) {
+
+                            event.preventDefault();
+
+                            verifyOtp();
+
+                        }
+
+                    }
+                );
+
+
+
+                /* =================================================
+                   CONTACT FORM SUBMIT
+                ================================================== */
+
+                form.addEventListener(
+                    "submit",
+                    function (event) {
+
+
+                        if (
+                            !emailVerified
+                            ||
+                            !verificationToken.value
+                        ) {
+
+                            event.preventDefault();
+
+
+                            showToast(
+                                "Please verify your email address before submitting the form.",
+                                "error"
+                            );
+
+
+                            emailInput.focus();
+
+
+                            return;
+
+                        }
+
+
+                        submitBtn.classList.add(
+                            "cmms-contact-form-btnloading"
+                        );
+
+
+                        submitBtn.disabled =
+                            true;
+
+                    }
+                );
+
+
+
+                updateVerifyEmailLink();
+
+            }
+        );
+
+    </script>
+
+
+    {% include 'footer.html' %}
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
 </html>
